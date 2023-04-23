@@ -21,5 +21,16 @@ namespace finalproject
         {
 
         }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            changepass cp = new changepass();
+            cp.ShowDialog();
+        }
     }
 }
