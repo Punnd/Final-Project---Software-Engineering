@@ -4,13 +4,19 @@
     <Compile Update="changepass.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="delivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Form3.cs">
+    <Compile Update="Form4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="main.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

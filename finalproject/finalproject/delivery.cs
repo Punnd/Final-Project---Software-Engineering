@@ -10,14 +10,24 @@ using System.Windows.Forms;
 
 namespace finalproject
 {
-    public partial class Form4 : Form
+    public partial class delivery : Form
     {
-        public Form4()
+        public delivery()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -6,7 +6,6 @@ C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhu
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.csproj.AssemblyReference.cache
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form1.resources
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form2.resources
-C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form3.resources
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Properties.Resources.resources
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.csproj.GenerateResource.cache
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.GeneratedMSBuildEditorConfig.editorconfig
@@ -19,3 +18,6 @@ C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhu
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.genruntimeconfig.cache
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\ref\finalproject.dll
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.changepass.resources
+C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.delivery.resources
+C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form4.resources
+C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\Gibhub final\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.main.resources
