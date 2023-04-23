@@ -1,0 +1,77 @@
+ketoan(lastname,firstname,email,phone,pass)
+phone(id,brand,name,ram,gb,price,quantity,total)
+agent(id,name,address)
+reveived(id,mail_ketoan,id_phone,soluong)
+delivery(id,id_agent,id_phone,tinhtrangchuyen,tinhtrangthanhtoan)
+
+
+create table ketoan(
+	email varchar(100),
+	firstname varchar(100),
+	lastname varchar(100),
+	phone	varchar(15),
+	pass varchar(100) 
+)
+
+create table phone(
+	id	varchar(10),
+	brand	varchar(10),
+	name	varchar(10),
+	ram	int,
+	gb	int,
+	price	money,
+	quantity	int,
+	total	money
+)
+create table agent(
+	id	varchar(10),
+	name	varchar(2000),
+	address	varchar(500)
+)
+
+create table reveived(
+	id	varchar(10),
+	mail_ketoan	varchar(100),
+	id_phone	varchar(10),
+	//gia	money,
+	soluong	int,
+	//total money,
+)
+
+create table delivery(
+	id	varchar(10),
+	id_agent	varchar(10),
+	id_phone	varchar(10),
+	soluong	int,
+	tinhtrangchuyen	varchar(50),
+	tinhtrangthanhtoan	varchar(50)
+)
+
+insert into ketoan values('Nguyen','Khanh Duy','kduy@gmail.com','0123456789','123456')
+insert into ketoan values('Ly','Khoa Name','knam@gmail.com','0123456789','123456')
+
+insert into phone values('IP0001','Apple','Iphone 13 ProMax',4,1024,29300,1,29300)
+insert into phone values('IP0002','Apple','Iphone 14 ProMax',6,1024,35500,2,71000)
+insert into phone values('IP0003','Apple','Iphone 11 ',3,64,9990,5,49950)
+insert into phone values('IP0004','Apple','Iphone 12',4,128,17490,3,52470)
+insert into phone values('SS0001','Samsung','Samsung Galaxy S23 5G',8,256,23990,2,47980)
+insert into phone values('SS0001','Samsung','Samsung Galaxy Zlip4 5G',8,512,21490,2,42980)
+
+insert into Agent values('A0001','Luong Viet An','Ha Tinh')
+insert into Agent values('A0002','Ly Khoa Nam','An Giang')
+insert into Agent values('A0003','Nguyen Khanh Duy','Dong Thap')
+insert into Agent values('A0004','Le Thao Nhi','TP Ho Chi Minh')
+insert into Agent values('A0005','Nguyen Thi Ngoc Chau,'Tay Ninh')
+insert into Agent values('A0006','Huynh Pham Thuy Tien','Dong Thap')
+insert into Agent values('A0007','Huynh Nguyen Mai Phuong','Dong Nai')
+insert into Agent values('A0008','Le Nguyen Bao Ngoc','Can Tho')
+insert into Agent values('A0009','Nguyen Phuong Nhi','Thanh Hoa')
+insert into Agent values('A0010','Do Thi Ha','Thanh Hoa')
+insert into Agent values('A0011','Dang Thi Le Hang','TP Da Nang')
+insert into Agent values('A0012','Tran Nhat Khang','TP Ho Chi Minh')
+insert into Agent values('A0013','Nguyen Quoc Dat','Ha Noi')
+insert into Agent values('A0014','Tran Quang Duc','Dien Bien')
+insert into Agent values('A0015','Nguyen Viet Khang','Vung Tau')
+
+
+

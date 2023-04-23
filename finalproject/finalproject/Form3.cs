@@ -32,5 +32,10 @@ namespace finalproject
             changepass cp = new changepass();
             cp.ShowDialog();
         }
+
+        private void gToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

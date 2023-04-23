@@ -51,10 +51,9 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.DodgerBlue;
             this.panelMenu.Controls.Add(this.menuStrip1);
-            this.panelMenu.Location = new System.Drawing.Point(-15, 1);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelMenu.Location = new System.Drawing.Point(-13, 1);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1390, 67);
+            this.panelMenu.Size = new System.Drawing.Size(1216, 50);
             this.panelMenu.TabIndex = 0;
             // 
             // menuStrip1
@@ -67,8 +66,7 @@
             this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1390, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1216, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,20 +78,20 @@
             this.cancelToolStripMenuItem});
             this.accountToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(115, 36);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // changePasswordToolStripMenuItem
             // 
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(290, 36);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.changePasswordToolStripMenuItem.Text = "Change password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // cancelToolStripMenuItem
             // 
             this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
-            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(290, 36);
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.cancelToolStripMenuItem.Text = "Log out";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
@@ -101,14 +99,15 @@
             // 
             this.gToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gToolStripMenuItem.Name = "gToolStripMenuItem";
-            this.gToolStripMenuItem.Size = new System.Drawing.Size(198, 36);
+            this.gToolStripMenuItem.Size = new System.Drawing.Size(157, 29);
             this.gToolStripMenuItem.Text = "Goods Received";
+            this.gToolStripMenuItem.Click += new System.EventHandler(this.gToolStripMenuItem_Click);
             // 
             // goodsDeliveryToolStripMenuItem
             // 
             this.goodsDeliveryToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.goodsDeliveryToolStripMenuItem.Name = "goodsDeliveryToolStripMenuItem";
-            this.goodsDeliveryToolStripMenuItem.Size = new System.Drawing.Size(197, 36);
+            this.goodsDeliveryToolStripMenuItem.Size = new System.Drawing.Size(156, 29);
             this.goodsDeliveryToolStripMenuItem.Text = "Goods Delivery ";
             // 
             // reportToolStripMenuItem
@@ -120,31 +119,31 @@
             this.revenueReportMonthlyToolStripMenuItem});
             this.reportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(98, 36);
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.reportToolStripMenuItem.Text = "Report";
             // 
             // incomingoutgoingStockToolStripMenuItem
             // 
             this.incomingoutgoingStockToolStripMenuItem.Name = "incomingoutgoingStockToolStripMenuItem";
-            this.incomingoutgoingStockToolStripMenuItem.Size = new System.Drawing.Size(362, 36);
+            this.incomingoutgoingStockToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.incomingoutgoingStockToolStripMenuItem.Text = "Incoming stock";
             // 
             // outgoingStockToolStripMenuItem
             // 
             this.outgoingStockToolStripMenuItem.Name = "outgoingStockToolStripMenuItem";
-            this.outgoingStockToolStripMenuItem.Size = new System.Drawing.Size(362, 36);
+            this.outgoingStockToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.outgoingStockToolStripMenuItem.Text = "Outgoing stock";
             // 
             // bestsellingProductsToolStripMenuItem
             // 
             this.bestsellingProductsToolStripMenuItem.Name = "bestsellingProductsToolStripMenuItem";
-            this.bestsellingProductsToolStripMenuItem.Size = new System.Drawing.Size(362, 36);
+            this.bestsellingProductsToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.bestsellingProductsToolStripMenuItem.Text = "Best-selling products";
             // 
             // revenueReportMonthlyToolStripMenuItem
             // 
             this.revenueReportMonthlyToolStripMenuItem.Name = "revenueReportMonthlyToolStripMenuItem";
-            this.revenueReportMonthlyToolStripMenuItem.Size = new System.Drawing.Size(362, 36);
+            this.revenueReportMonthlyToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.revenueReportMonthlyToolStripMenuItem.Text = "Revenue report monthly";
             // 
             // contextMenuStrip1
@@ -155,13 +154,12 @@
             // 
             // Form3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 1015);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.ControlBox = false;
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panelMenu.ResumeLayout(false);
