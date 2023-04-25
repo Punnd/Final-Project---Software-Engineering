@@ -33,6 +33,7 @@ namespace finalproject
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //this.Close();
             this.Close();
         }
 
