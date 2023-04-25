@@ -3,9 +3,10 @@ phone(id,brand,name,ram,gb,price,quantity,total)
 agent(id,name,address)
 reveived(id,mail_ketoan,id_phone,soluong)
 delivery(id,id_agent,id_phone,tinhtrangchuyen,tinhtrangthanhtoan)
-
+create database final
 
 create table ketoan(
+	id int identity(1,1), 
 	email varchar(100),
 	firstname varchar(100),
 	lastname varchar(100),
@@ -14,32 +15,32 @@ create table ketoan(
 )
 
 create table phone(
-	id	varchar(10),
-	brand	varchar(10),
-	name	varchar(10),
+	id	varchar(10) not null,
+	brand	varchar(50),
+	name	varchar(50),
 	ram	int,
 	gb	int,
 	price	money,
 	quantity	int,
 	total	money
 )
+
+
 create table agent(
-	id	varchar(10),
+	id	varchar(10) not null,
 	name	varchar(2000),
 	address	varchar(500)
 )
 
 create table reveived(
-	id	varchar(10),
+	id	varchar(10) not null,
 	mail_ketoan	varchar(100),
 	id_phone	varchar(10),
-	//gia	money,
 	soluong	int,
-	//total money,
 )
 
 create table delivery(
-	id	varchar(10),
+	id	varchar(10) not null,
 	id_agent	varchar(10),
 	id_phone	varchar(10),
 	soluong	int,
@@ -47,8 +48,21 @@ create table delivery(
 	tinhtrangthanhtoan	varchar(50)
 )
 
-insert into ketoan values('Nguyen','Khanh Duy','kduy@gmail.com','0123456789','123456')
-insert into ketoan values('Ly','Khoa Name','knam@gmail.com','0123456789','123456')
+
+alter table phone
+add primary key(id)
+
+alter table agent
+add primary key(id)
+
+alter table reveived
+add primary key(id)
+
+alter table delivery
+add primary key(id)
+
+insert into ketoan values('kduy@gmail.com','Nguyen','Khanh Duy','0123456789','123456')
+insert into ketoan values('knam@gmail.com','Ly','Khoa Name','0123456789','123456')
 
 insert into phone values('IP0001','Apple','Iphone 13 ProMax',4,1024,29300,1,29300)
 insert into phone values('IP0002','Apple','Iphone 14 ProMax',6,1024,35500,2,71000)
@@ -61,7 +75,7 @@ insert into Agent values('A0001','Luong Viet An','Ha Tinh')
 insert into Agent values('A0002','Ly Khoa Nam','An Giang')
 insert into Agent values('A0003','Nguyen Khanh Duy','Dong Thap')
 insert into Agent values('A0004','Le Thao Nhi','TP Ho Chi Minh')
-insert into Agent values('A0005','Nguyen Thi Ngoc Chau,'Tay Ninh')
+insert into Agent values('A0005','Nguyen Thi Ngoc Chau','Tay Ninh')
 insert into Agent values('A0006','Huynh Pham Thuy Tien','Dong Thap')
 insert into Agent values('A0007','Huynh Nguyen Mai Phuong','Dong Nai')
 insert into Agent values('A0008','Le Nguyen Bao Ngoc','Can Tho')
@@ -73,7 +87,6 @@ insert into Agent values('A0013','Nguyen Quoc Dat','Ha Noi')
 insert into Agent values('A0014','Tran Quang Duc','Dien Bien')
 insert into Agent values('A0015','Nguyen Viet Khang','Vung Tau')
 
-
-
-
-
+select *from phone
+select * from ketoan
+select *from agent
