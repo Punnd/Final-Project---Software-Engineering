@@ -88,8 +88,5 @@ insert into Agent values('A0014','Tran Quang Duc','Dien Bien')
 insert into Agent values('A0015','Nguyen Viet Khang','Vung Tau')
 
 select *from phone
-
-
 select * from ketoan
-
 select *from agent
