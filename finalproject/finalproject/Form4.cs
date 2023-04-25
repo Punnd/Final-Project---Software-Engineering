@@ -21,5 +21,10 @@ namespace finalproject
         {
             this.Close();
         }
+
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
