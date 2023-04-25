@@ -51,9 +51,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grd1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,7 +81,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.grd1);
             this.panel1.Location = new System.Drawing.Point(41, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 711);
@@ -307,21 +307,23 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(109, 26);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(123, 33);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // dataGridView1
+            // grd1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 270);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1094, 366);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            this.grd1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd1.Location = new System.Drawing.Point(3, 270);
+            this.grd1.Name = "grd1";
+            this.grd1.RowTemplate.Height = 25;
+            this.grd1.Size = new System.Drawing.Size(1094, 366);
+            this.grd1.TabIndex = 0;
+            this.grd1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // Form4
             // 
@@ -334,7 +336,7 @@
             this.Name = "Form4";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -359,7 +361,7 @@
         private Label label1;
         private TextBox textBox2;
         private TextBox textBox1;
-        private DataGridView dataGridView1;
+        private DataGridView grd1;
         private Button button6;
         private Button button5;
         private Button button4;

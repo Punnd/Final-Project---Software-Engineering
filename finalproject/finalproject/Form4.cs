@@ -26,5 +26,23 @@ namespace finalproject
         {
             
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int count = 0;
+            count = grd1.Rows.Count;
+            if (count + 1 < 10)
+            {
+                textBox1.Text = "I000" + count.ToString();
+            }
+            else if (count + 1 < 100)
+            {
+                textBox1.Text = "I00" + count.ToString();
+            }
+            else
+            {
+                textBox1.Text = "I0" + count.ToString();
+            }
+        }
     }
 }
