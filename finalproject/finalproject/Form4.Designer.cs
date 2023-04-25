@@ -29,27 +29,28 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtbrand = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtquantity = new System.Windows.Forms.TextBox();
+            this.txtprice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtstorage = new System.Windows.Forms.ComboBox();
+            this.txtram = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtname = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.grd1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -59,33 +60,47 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.txtbrand);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txtquantity);
+            this.panel1.Controls.Add(this.txtprice);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.txtstorage);
+            this.panel1.Controls.Add(this.txtram);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtid);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtname);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.grd1);
             this.panel1.Location = new System.Drawing.Point(41, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 711);
             this.panel1.TabIndex = 0;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.AliceBlue;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Location = new System.Drawing.Point(988, 26);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(109, 55);
+            this.button7.TabIndex = 24;
+            this.button7.Text = "Create";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -98,6 +113,7 @@
             this.button6.TabIndex = 23;
             this.button6.Text = "Edit";
             this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -110,6 +126,7 @@
             this.button5.TabIndex = 22;
             this.button5.Text = "Delete";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -122,15 +139,16 @@
             this.button4.TabIndex = 21;
             this.button4.Text = "Add";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox6
+            // txtbrand
             // 
-            this.textBox6.BackColor = System.Drawing.Color.White;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox6.Location = new System.Drawing.Point(109, 166);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(123, 33);
-            this.textBox6.TabIndex = 20;
+            this.txtbrand.BackColor = System.Drawing.Color.White;
+            this.txtbrand.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtbrand.Location = new System.Drawing.Point(109, 166);
+            this.txtbrand.Name = "txtbrand";
+            this.txtbrand.Size = new System.Drawing.Size(123, 33);
+            this.txtbrand.TabIndex = 20;
             // 
             // label8
             // 
@@ -179,23 +197,23 @@
             this.button1.Text = "Import";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // txtquantity
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox5.Location = new System.Drawing.Point(799, 213);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(183, 33);
-            this.textBox5.TabIndex = 15;
+            this.txtquantity.BackColor = System.Drawing.SystemColors.Control;
+            this.txtquantity.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtquantity.Location = new System.Drawing.Point(799, 213);
+            this.txtquantity.Name = "txtquantity";
+            this.txtquantity.Size = new System.Drawing.Size(183, 33);
+            this.txtquantity.TabIndex = 15;
             // 
-            // textBox4
+            // txtprice
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox4.Location = new System.Drawing.Point(799, 166);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 33);
-            this.textBox4.TabIndex = 14;
+            this.txtprice.BackColor = System.Drawing.SystemColors.Control;
+            this.txtprice.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtprice.Location = new System.Drawing.Point(799, 166);
+            this.txtprice.Name = "txtprice";
+            this.txtprice.Size = new System.Drawing.Size(183, 33);
+            this.txtprice.TabIndex = 14;
             // 
             // label7
             // 
@@ -217,24 +235,24 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Price";
             // 
-            // comboBox2
+            // txtstorage
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(397, 213);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(280, 33);
-            this.comboBox2.TabIndex = 11;
+            this.txtstorage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtstorage.FormattingEnabled = true;
+            this.txtstorage.Location = new System.Drawing.Point(397, 213);
+            this.txtstorage.Name = "txtstorage";
+            this.txtstorage.Size = new System.Drawing.Size(280, 33);
+            this.txtstorage.TabIndex = 11;
             // 
-            // comboBox1
+            // txtram
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(397, 166);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(280, 33);
-            this.comboBox1.TabIndex = 10;
+            this.txtram.BackColor = System.Drawing.SystemColors.Control;
+            this.txtram.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtram.FormattingEnabled = true;
+            this.txtram.Location = new System.Drawing.Point(397, 166);
+            this.txtram.Name = "txtram";
+            this.txtram.Size = new System.Drawing.Size(280, 33);
+            this.txtram.TabIndex = 10;
             // 
             // label5
             // 
@@ -276,14 +294,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Name";
             // 
-            // textBox3
+            // txtid
             // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(109, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 33);
-            this.textBox3.TabIndex = 4;
+            this.txtid.BackColor = System.Drawing.Color.White;
+            this.txtid.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtid.Location = new System.Drawing.Point(109, 92);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(123, 33);
+            this.txtid.TabIndex = 4;
             // 
             // label1
             // 
@@ -295,14 +313,14 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "ID";
             // 
-            // textBox2
+            // txtname
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(397, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(585, 33);
-            this.textBox2.TabIndex = 2;
+            this.txtname.BackColor = System.Drawing.SystemColors.Control;
+            this.txtname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtname.Location = new System.Drawing.Point(397, 92);
+            this.txtname.Name = "txtname";
+            this.txtname.Size = new System.Drawing.Size(585, 33);
+            this.txtname.TabIndex = 2;
             // 
             // textBox1
             // 
@@ -323,6 +341,7 @@
             this.grd1.RowTemplate.Height = 25;
             this.grd1.Size = new System.Drawing.Size(1094, 366);
             this.grd1.TabIndex = 0;
+            this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // Form4
@@ -334,6 +353,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Name = "Form4";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
@@ -347,25 +367,26 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox txtquantity;
+        private TextBox txtprice;
         private Label label7;
         private Label label6;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
+        private ComboBox txtstorage;
+        private ComboBox txtram;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox txtid;
         private Label label1;
-        private TextBox textBox2;
+        private TextBox txtname;
         private TextBox textBox1;
         private DataGridView grd1;
         private Button button6;
         private Button button5;
         private Button button4;
-        private TextBox textBox6;
+        private TextBox txtbrand;
         private Label label8;
+        private Button button7;
     }
 }
