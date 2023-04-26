@@ -52,7 +52,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grd1 = new System.Windows.Forms.DataGridView();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,7 +75,7 @@
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.grd1);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -331,14 +331,15 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Warehouse";
             // 
-            // dataGridView1
+            // grd1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(15, 185);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(555, 558);
-            this.dataGridView1.TabIndex = 6;
+            this.grd1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd1.Location = new System.Drawing.Point(15, 185);
+            this.grd1.Name = "grd1";
+            this.grd1.RowTemplate.Height = 25;
+            this.grd1.Size = new System.Drawing.Size(555, 558);
+            this.grd1.TabIndex = 6;
+            this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // textBox3
             // 
@@ -406,11 +407,12 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Name = "delivery";
+            this.Load += new System.EventHandler(this.delivery_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -435,7 +437,7 @@
         private RichTextBox richTextBox1;
         private Label label5;
         private Label label4;
-        private DataGridView dataGridView1;
+        private DataGridView grd1;
         private TextBox textBox3;
         private Label label3;
         private Label label2;
