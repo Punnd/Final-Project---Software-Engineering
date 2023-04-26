@@ -108,6 +108,22 @@ namespace finalproject
 
         }
 
+        public void showGRD2()
+
+        {
+
+            string s = "select * from phone";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd2.DataSource = tb;
+
+        }
+
         void formload()
         {
 
@@ -120,18 +136,22 @@ namespace finalproject
             button7.Enabled = true;
 
 
-
+            
 
             showGRD1();
+
+            showGRD2();
         }
 
         private void Form4_Load(object sender, EventArgs e)
         {
-            string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            /*string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
 
             cn = new SqlConnection(sql);
 
-            cn.Open();
+            cn.Open();*/
+
+            connect();
 
             formload();
         }
@@ -222,24 +242,45 @@ namespace finalproject
             dk = 2;
         }
 
+        public void connect()
+        {
+            string s = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            cn = new SqlConnection(s);
+            cn.Open();
+
+        }
+        public DataTable selectQuery(string sql)
+        {
+            connect();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, cn);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            return dt;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
-            string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            /*string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
 
             cn = new SqlConnection(sql);
 
             cn.Open();
 
+            connect();
+
             for (int i = 0; i < grd1.Rows.Count-1; i++)
             {
-                string newValue = grd1.Rows[i].Cells[0].Value.ToString(); // Lấy giá trị mới của ô
+                //string newValue = grd1.Rows[i].Cells[0].Value.ToString(); // Lấy giá trị mới của ô
                 //string id = grd1.Rows[i].Cells["id"].Value.ToString(); // Lấy giá trị id của dòng tương ứng
 
                 //string connString = "your_connection_string";
-                string query = "SELECT * FROM phone WHERE id = '" + newValue + "'"; // Lấy giá trị cột thứ 0 trong database
-                using (SqlConnection conn = new SqlConnection(sql))
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                //string query = "SELECT id FROM phone WHERE id = '" + newValue + "'"; // Lấy giá trị cột thứ 0 trong database
+                //string query = "select * from phone";
+                selectQuery("select * from phone");
+                //string ab = "";
+                //using (SqlConnection conn = new SqlConnection(sql))
+                //using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     conn.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -260,17 +301,46 @@ namespace finalproject
                             }
                             else
                             {
-                                query = "insert into phone values ('" + grd1.Rows[i].Cells[0].ToString() + "','" + grd1.Rows[i].Cells[1].ToString() + "','" + grd1.Rows[i].Cells[2].ToString() + "','" + grd1.Rows[i].Cells[3].ToString() + "','" + grd1.Rows[i].Cells[4].ToString() + "','" + grd1.Rows[i].Cells[5].ToString() + "','" + grd1.Rows[i].Cells[6].ToString() + "','" + grd1.Rows[i].Cells[7].ToString() + "')";
+                                string query = "insert into phone values ('" + grd1.Rows[i].Cells[0].ToString() + "','" + grd1.Rows[i].Cells[1].ToString() + "','" + grd1.Rows[i].Cells[2].ToString() + "','" + grd1.Rows[i].Cells[3].ToString() + "','" + grd1.Rows[i].Cells[4].ToString() + "','" + grd1.Rows[i].Cells[5].ToString() + "','" + grd1.Rows[i].Cells[6].ToString() + "','" + grd1.Rows[i].Cells[7].ToString() + "')";
                                 cm = new SqlCommand(query, cn);
                                 cm.ExecuteNonQuery();
                             }
 
-                            
                         }
                     }
                     conn.Close();
                 }
+                
+
+            }*/
+
+            for(int i = 0; i < grd1.Rows.Count; i++)
+            {
+                string s = grd1.Rows[i].Cells[0].Value.ToString();
+
+                string query = "select * from phone where id = '"+ s +"'";
+
+                DataTable dt = selectQuery(query);
+
+
+                if(dt.Rows.Count == 0)
+                {
+                    query = "insert into phone values ('" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[1].Value.ToString() + "','" + grd1.Rows[i].Cells[2].Value.ToString() + "','" + grd1.Rows[i].Cells[3].Value.ToString() + "','" + grd1.Rows[i].Cells[4].Value.ToString() + "','" + grd1.Rows[i].Cells[5].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
+                    cm = new SqlCommand(query, cn);
+                    cm.ExecuteNonQuery();
+                    //delivery d = new delivery();
+                    //d.showGRD1();
+                }
+                
             }
+
+            formload();
+
+        }
+
+        private void grd2_Click(object sender, EventArgs e)
+        {
+
         }
         //public string 
     }

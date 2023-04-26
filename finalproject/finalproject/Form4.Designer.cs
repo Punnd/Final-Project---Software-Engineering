@@ -53,13 +53,16 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.txtGR = new System.Windows.Forms.TextBox();
             this.grd1 = new System.Windows.Forms.DataGridView();
+            this.grd2 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.grd2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
@@ -340,10 +343,20 @@
             this.grd1.Location = new System.Drawing.Point(3, 270);
             this.grd1.Name = "grd1";
             this.grd1.RowTemplate.Height = 25;
-            this.grd1.Size = new System.Drawing.Size(1094, 366);
+            this.grd1.Size = new System.Drawing.Size(740, 366);
             this.grd1.TabIndex = 0;
             this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.dataGridView1_Click);
+            // 
+            // grd2
+            // 
+            this.grd2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd2.Location = new System.Drawing.Point(760, 270);
+            this.grd2.Name = "grd2";
+            this.grd2.RowTemplate.Height = 25;
+            this.grd2.Size = new System.Drawing.Size(329, 366);
+            this.grd2.TabIndex = 25;
+            this.grd2.Click += new System.EventHandler(this.grd2_Click);
             // 
             // Form4
             // 
@@ -358,6 +371,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +404,6 @@
         private Label label8;
         private Button button7;
         private TextBox txtGR;
+        private DataGridView grd2;
     }
 }
