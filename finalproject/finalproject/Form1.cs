@@ -19,7 +19,7 @@ namespace finalproject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string sql = "initial catalog = final; data source = MSI\\SQLEXPRESS; integrated security = true";
+            string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
 
             cn = new SqlConnection(sql);
 
@@ -49,6 +49,11 @@ namespace finalproject
             {
                 MessageBox.Show("Invalid Email or password");
             }
+        }
+
+        private void txtCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

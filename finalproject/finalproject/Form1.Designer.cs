@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -92,13 +93,24 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(539, 511);
+            this.button1.Location = new System.Drawing.Point(428, 528);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 45);
             this.button1.TabIndex = 5;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtCancel
+            // 
+            this.txtCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCancel.Location = new System.Drawing.Point(645, 528);
+            this.txtCancel.Name = "txtCancel";
+            this.txtCancel.Size = new System.Drawing.Size(134, 45);
+            this.txtCancel.TabIndex = 6;
+            this.txtCancel.Text = "Cancel";
+            this.txtCancel.UseVisualStyleBackColor = true;
+            this.txtCancel.Click += new System.EventHandler(this.txtCancel_Click);
             // 
             // Form1
             // 
@@ -107,6 +119,7 @@
             this.BackgroundImage = global::finalproject.Properties.Resources.login;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.txtCancel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -115,6 +128,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KDKN";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -130,5 +144,6 @@
         private Label label2;
         private Label label3;
         private Button button1;
+        private Button txtCancel;
     }
 }
