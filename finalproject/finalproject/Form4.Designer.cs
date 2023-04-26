@@ -51,7 +51,7 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtname = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtGR = new System.Windows.Forms.TextBox();
             this.grd1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
@@ -82,12 +82,12 @@
             this.panel1.Controls.Add(this.txtid);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtname);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtGR);
             this.panel1.Controls.Add(this.grd1);
             this.panel1.Location = new System.Drawing.Point(41, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 711);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 7;
             // 
             // button7
             // 
@@ -137,7 +137,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 55);
             this.button4.TabIndex = 21;
-            this.button4.Text = "Add";
+            this.button4.Text = "Save";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -148,7 +148,7 @@
             this.txtbrand.Location = new System.Drawing.Point(109, 166);
             this.txtbrand.Name = "txtbrand";
             this.txtbrand.Size = new System.Drawing.Size(123, 33);
-            this.txtbrand.TabIndex = 20;
+            this.txtbrand.TabIndex = 3;
             // 
             // label8
             // 
@@ -196,6 +196,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Import";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtquantity
             // 
@@ -213,7 +214,7 @@
             this.txtprice.Location = new System.Drawing.Point(799, 166);
             this.txtprice.Name = "txtprice";
             this.txtprice.Size = new System.Drawing.Size(183, 33);
-            this.txtprice.TabIndex = 14;
+            this.txtprice.TabIndex = 5;
             // 
             // label7
             // 
@@ -242,7 +243,7 @@
             this.txtstorage.Location = new System.Drawing.Point(397, 213);
             this.txtstorage.Name = "txtstorage";
             this.txtstorage.Size = new System.Drawing.Size(280, 33);
-            this.txtstorage.TabIndex = 11;
+            this.txtstorage.TabIndex = 6;
             // 
             // txtram
             // 
@@ -252,7 +253,7 @@
             this.txtram.Location = new System.Drawing.Point(397, 166);
             this.txtram.Name = "txtram";
             this.txtram.Size = new System.Drawing.Size(280, 33);
-            this.txtram.TabIndex = 10;
+            this.txtram.TabIndex = 4;
             // 
             // label5
             // 
@@ -301,7 +302,7 @@
             this.txtid.Location = new System.Drawing.Point(109, 92);
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(123, 33);
-            this.txtid.TabIndex = 4;
+            this.txtid.TabIndex = 1;
             // 
             // label1
             // 
@@ -317,21 +318,21 @@
             // 
             this.txtname.BackColor = System.Drawing.SystemColors.Control;
             this.txtname.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtname.Location = new System.Drawing.Point(397, 92);
+            this.txtname.Location = new System.Drawing.Point(397, 85);
             this.txtname.Name = "txtname";
             this.txtname.Size = new System.Drawing.Size(585, 33);
             this.txtname.TabIndex = 2;
             // 
-            // textBox1
+            // txtGR
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(109, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 33);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtGR.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtGR.Enabled = false;
+            this.txtGR.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtGR.Location = new System.Drawing.Point(109, 26);
+            this.txtGR.Name = "txtGR";
+            this.txtGR.Size = new System.Drawing.Size(123, 33);
+            this.txtGR.TabIndex = 1;
+            this.txtGR.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // grd1
             // 
@@ -388,5 +389,6 @@
         private TextBox txtbrand;
         private Label label8;
         private Button button7;
+        private TextBox txtGR;
     }
 }

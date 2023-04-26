@@ -35,25 +35,62 @@ namespace finalproject
 
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            
+            txtid.Text = grd1.CurrentRow.Cells[0].Value.ToString();
+
+            txtbrand.Text = grd1.CurrentRow.Cells[1].Value.ToString();
+
+            txtname.Text = grd1.CurrentRow.Cells[2].Value.ToString();
+
+            txtram.Text = grd1.CurrentRow.Cells[3].Value.ToString();
+
+            txtstorage.Text = grd1.CurrentRow.Cells[4].Value.ToString();
+
+            txtprice.Text = grd1.CurrentRow.Cells[5].Value.ToString();
+
+            txtquantity.Text = grd1.CurrentRow.Cells[6].Value.ToString();
+
+
+
+
+            button5.Enabled = true;
+
+            button6.Enabled = true;
+        }
+
+        public void autoId()
+        {
+            string s = "select top 1 id from reveived order by id desc ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+            if (tb.Rows.Count > 0)
+            {
+                txtGR.Text = "GR0001";
+            }
+            else
+            {
+                txtGR.Text = "GR0001";
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            int count = 0;
-            count = grd1.Rows.Count;
-            if (count + 1 < 10)
+            string s = "select top 1 id from reveived order by id desc ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+            
+            if (tb.Rows.Count > 0)
             {
-                textBox1.Text = "I000" + count.ToString();
-            }
-            else if (count + 1 < 100)
-            {
-                textBox1.Text = "I00" + count.ToString();
+                txtGR.Text = "GR0001";
             }
             else
             {
-                textBox1.Text = "I0" + count.ToString();
+                txtGR.Text = "GR0001";
             }
+
+            
         }
         public void showGRD1()
 
@@ -101,26 +138,7 @@ namespace finalproject
 
         private void grd1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtid.Text = grd1.CurrentRow.Cells[0].Value.ToString();
-
-            txtbrand.Text = grd1.CurrentRow.Cells[1].Value.ToString();
-
-            txtname.Text = grd1.CurrentRow.Cells[2].Value.ToString();
-
-            txtram.Text = grd1.CurrentRow.Cells[3].Value.ToString();
-
-            txtstorage.Text = grd1.CurrentRow.Cells[4].Value.ToString();
-
-            txtprice.Text = grd1.CurrentRow.Cells[5].Value.ToString();
-
-            txtquantity.Text = grd1.CurrentRow.Cells[6].Value.ToString();
-
-
-
-
-            button5.Enabled = true;
-
-            button6.Enabled = true;
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -128,7 +146,8 @@ namespace finalproject
             txtid.Clear();
             txtbrand.Clear();
             txtname.Clear();
-            //txtram.Clear();
+            txtram.ResetText();
+            txtstorage.ResetText();
             txtprice.Clear();
             txtquantity.Clear();
 
@@ -136,8 +155,7 @@ namespace finalproject
 
             dk = 1;
 
-
-
+            autoId();
             button4.Enabled = true;
 
 
@@ -145,11 +163,12 @@ namespace finalproject
 
         private void button4_Click(object sender, EventArgs e)
         {
-            double value1 = Convert.ToDouble(txtprice.Text);
-            double value2 = Convert.ToDouble(txtquantity.Text);
+            int value1 = int.Parse(txtprice.Text);
+            int value2 = int.Parse(txtquantity.Text);
 
             // Multiply the values
             double result = value1 * value2;
+
             if (dk == 1)
             {
                 string s = "select * from phone where id = '" + txtid.Text + "' ";
@@ -162,7 +181,7 @@ namespace finalproject
                     return;
                 }
 
-                s = "insert into phone values ('" + txtid.Text + "','" + txtbrand.Text + "','" + txtname.Text + "','" + txtram.Text + "','" + txtstorage.Text + "','" + txtprice.Text + "','" + txtquantity.Text + "','" + result.ToString() + "')";
+                s = "insert into phone values ('" + txtid.Text + "','" + txtbrand.Text + "','" + txtname.Text + "','" + txtram.Text + "','" + txtstorage.Text + "','" + int.Parse(txtprice.Text) + "','" + int.Parse(txtquantity.Text) + "','" + int.Parse(result.ToString()) + "')";
 
                 cm = new SqlCommand(s, cn);
                 cm.ExecuteNonQuery();
@@ -170,7 +189,7 @@ namespace finalproject
             else //dk =2
             {
                 //Update
-                string s = "update phone set brand = '" + txtbrand.Text + "', name = '" + txtname.Text + "', ram = '" + txtram.Text + "', gb = '" + txtstorage.Text + "', price = '" + txtprice.Text + "'', quantity = '" + txtquantity.Text + "'', total = '" + result.ToString() + "' where id = '" + txtid.Text + "'";
+                string s = "update phone set brand = '" + txtbrand.Text + "', name = '" + txtname.Text + "', ram = '" + int.Parse(txtram.Text) + "', gb = '" + int.Parse(txtstorage.Text) + "', price = '" + int.Parse(txtprice.Text) + "', quantity = '" + int.Parse(txtquantity.Text.ToString()) + "', total = '" + result + "' where id = '" + txtid.Text + "'";
                 cm = new SqlCommand(s, cn);
                 cm.ExecuteNonQuery();
             }
@@ -184,6 +203,13 @@ namespace finalproject
                 string sql = "delete from phone where id ='" + txtid.Text + "'";
                 cm = new SqlCommand(sql, cn);
                 cm.ExecuteNonQuery();
+                txtid.Clear();
+                txtbrand.Clear();
+                txtname.Clear();
+                txtram.ResetText();
+                txtstorage.ResetText();
+                txtprice.Clear();
+                txtquantity.Clear();
                 formload();
             }
         }
@@ -194,6 +220,11 @@ namespace finalproject
             txtname.Focus();
             button4.Enabled = true;
             dk = 2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
         //public string 
     }
