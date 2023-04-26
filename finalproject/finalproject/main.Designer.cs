@@ -109,6 +109,7 @@
             this.Name = "main";
             this.Text = "main";
             this.AutoSizeChanged += new System.EventHandler(this.main_AutoSizeChanged);
+            this.Load += new System.EventHandler(this.main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

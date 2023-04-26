@@ -56,5 +56,11 @@ namespace finalproject
             panel1.Tag = delivery;
             delivery.Show();
         }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.ShowDialog();
+        }
     }
 }
