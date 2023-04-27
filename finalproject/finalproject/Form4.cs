@@ -338,17 +338,15 @@ namespace finalproject
                     {
 
                     }
+
+                    
                 }
-                
-
-
-                
+                              
             }
 
-            string sql = "delete * from phone_fake";
+            string sql = "delete from phone_fake";
             cm = new SqlCommand(sql, cn);
             cm.ExecuteNonQuery();
-
 
             formload();
 

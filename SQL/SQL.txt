@@ -37,6 +37,7 @@ create table reveived(
 	mail_ketoan	varchar(100),
 	id_phone	varchar(10),
 	soluong	int,
+	date datetime
 )
 
 create table delivery(
@@ -44,8 +45,7 @@ create table delivery(
 	id_agent	varchar(10),
 	id_phone	varchar(10),
 	soluong	int,
-	tinhtrangchuyen	varchar(50),
-	tinhtrangthanhtoan	varchar(50)
+	date datetime
 )
 
 
