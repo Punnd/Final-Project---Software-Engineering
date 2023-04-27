@@ -314,25 +314,41 @@ namespace finalproject
 
             }*/
 
-            for(int i = 0; i < grd1.Rows.Count; i++)
+            for(int i = 1; i < grd1.Rows.Count-1; i++)
             {
-                string s = grd1.Rows[i].Cells[0].Value.ToString();
 
-                string query = "select * from phone where id = '"+ s +"'";
+                string s = Convert.ToString(grd1.Rows[i].Cells[0].Value);
 
-                DataTable dt = selectQuery(query);
-
-
-                if(dt.Rows.Count == 0)
+                if (s != null)
                 {
-                    query = "insert into phone values ('" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[1].Value.ToString() + "','" + grd1.Rows[i].Cells[2].Value.ToString() + "','" + grd1.Rows[i].Cells[3].Value.ToString() + "','" + grd1.Rows[i].Cells[4].Value.ToString() + "','" + grd1.Rows[i].Cells[5].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
-                    cm = new SqlCommand(query, cn);
-                    cm.ExecuteNonQuery();
-                    //delivery d = new delivery();
-                    //d.showGRD1();
+                    string query = "select * from phone where id = '" + s + "'";
+
+                    DataTable dt = selectQuery(query);
+
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        query = "insert into phone values ('" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[1].Value.ToString() + "','" + grd1.Rows[i].Cells[2].Value.ToString() + "','" + grd1.Rows[i].Cells[3].Value.ToString() + "','" + grd1.Rows[i].Cells[4].Value.ToString() + "','" + grd1.Rows[i].Cells[5].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
+                        cm = new SqlCommand(query, cn);
+                        cm.ExecuteNonQuery();
+                        //delivery d = new delivery();
+                        //d.showGRD1();
+                    }
+                    else
+                    {
+
+                    }
                 }
                 
+
+
+                
             }
+
+            string sql = "delete * from phone_fake";
+            cm = new SqlCommand(sql, cn);
+            cm.ExecuteNonQuery();
+
 
             formload();
 
