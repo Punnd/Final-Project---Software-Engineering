@@ -98,7 +98,7 @@ namespace finalproject
         void formload()
         {
 
-            //button1.Enabled = false;
+            button1.Enabled = false;
 
             txtiddelivery.Enabled = false;
 
@@ -268,7 +268,7 @@ namespace finalproject
             delivery_note.Text += "Accountant: " + id_acc + "\n\n";
             delivery_note.Text += "Agent: " + txtemail.Text + "\n\n";
 
-            delivery_note.Text += "List of phones: " + "\n":
+            delivery_note.Text += "List of phones: " + "\n";
             
             for(int i = 1; i < grd2.Rows.Count-1 ; i++)
             {

@@ -384,6 +384,7 @@
             // 
             // delivery_note
             // 
+            this.delivery_note.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.delivery_note.Location = new System.Drawing.Point(593, 300);
             this.delivery_note.Name = "delivery_note";
             this.delivery_note.Size = new System.Drawing.Size(558, 397);
