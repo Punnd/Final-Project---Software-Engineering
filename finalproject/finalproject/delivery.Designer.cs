@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.grd2 = new System.Windows.Forms.DataGridView();
             this.button5 = new System.Windows.Forms.Button();
             this.grbox1 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.txtid = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -52,7 +55,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.delivery_note = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grd1 = new System.Windows.Forms.DataGridView();
@@ -71,13 +74,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtemail);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.grd2);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.grbox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.delivery_note);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.grd1);
@@ -93,6 +98,25 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // txtemail
+            // 
+            this.txtemail.BackColor = System.Drawing.SystemColors.Control;
+            this.txtemail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtemail.Location = new System.Drawing.Point(100, 147);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(414, 29);
+            this.txtemail.TabIndex = 17;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label14.Location = new System.Drawing.Point(36, 147);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(58, 25);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Email";
+            // 
             // grd2
             // 
             this.grd2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -101,6 +125,8 @@
             this.grd2.RowTemplate.Height = 25;
             this.grd2.Size = new System.Drawing.Size(567, 266);
             this.grd2.TabIndex = 15;
+            this.grd2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd2_CellContentClick);
+            this.grd2.Click += new System.EventHandler(this.grd2_Click);
             // 
             // button5
             // 
@@ -116,6 +142,7 @@
             // 
             // grbox1
             // 
+            this.grbox1.Controls.Add(this.button6);
             this.grbox1.Controls.Add(this.txtid);
             this.grbox1.Controls.Add(this.label13);
             this.grbox1.Controls.Add(this.button4);
@@ -140,6 +167,18 @@
             this.grbox1.TabStop = false;
             this.grbox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button6.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button6.Location = new System.Drawing.Point(458, 159);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(108, 96);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "Delete";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // txtid
             // 
             this.txtid.BackColor = System.Drawing.SystemColors.Control;
@@ -163,9 +202,9 @@
             // 
             this.button4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.button4.Location = new System.Drawing.Point(458, 75);
+            this.button4.Location = new System.Drawing.Point(458, 57);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(108, 160);
+            this.button4.Size = new System.Drawing.Size(108, 96);
             this.button4.TabIndex = 27;
             this.button4.Text = "Add";
             this.button4.UseVisualStyleBackColor = true;
@@ -259,6 +298,7 @@
             this.txtquantity.Name = "txtquantity";
             this.txtquantity.Size = new System.Drawing.Size(172, 29);
             this.txtquantity.TabIndex = 19;
+            this.txtquantity.TextChanged += new System.EventHandler(this.txtquantity_TextChanged);
             // 
             // txtprice
             // 
@@ -268,6 +308,7 @@
             this.txtprice.Name = "txtprice";
             this.txtprice.Size = new System.Drawing.Size(172, 29);
             this.txtprice.TabIndex = 18;
+            this.txtprice.TextChanged += new System.EventHandler(this.txtprice_TextChanged);
             // 
             // txtstorage
             // 
@@ -339,14 +380,15 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Confim";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // richTextBox1
+            // delivery_note
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(593, 300);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(558, 397);
-            this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "";
+            this.delivery_note.Location = new System.Drawing.Point(593, 300);
+            this.delivery_note.Name = "delivery_note";
+            this.delivery_note.Size = new System.Drawing.Size(558, 397);
+            this.delivery_note.TabIndex = 9;
+            this.delivery_note.Text = "";
             // 
             // label5
             // 
@@ -362,7 +404,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(230, 157);
+            this.label4.Location = new System.Drawing.Point(233, 197);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 25);
             this.label4.TabIndex = 7;
@@ -371,10 +413,10 @@
             // grd1
             // 
             this.grd1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd1.Location = new System.Drawing.Point(15, 185);
+            this.grd1.Location = new System.Drawing.Point(15, 225);
             this.grd1.Name = "grd1";
             this.grd1.RowTemplate.Height = 25;
-            this.grd1.Size = new System.Drawing.Size(572, 297);
+            this.grd1.Size = new System.Drawing.Size(572, 267);
             this.grd1.TabIndex = 6;
             this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.grd1_Click);
@@ -474,7 +516,7 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private RichTextBox richTextBox1;
+        private RichTextBox delivery_note;
         private Label label5;
         private Label label4;
         private DataGridView grd1;
@@ -493,5 +535,8 @@
         private DataGridView grd2;
         private TextBox txtid;
         private Label label13;
+        private Button button6;
+        private TextBox txtemail;
+        private Label label14;
     }
 }

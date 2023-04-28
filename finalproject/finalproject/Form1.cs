@@ -12,6 +12,9 @@ namespace finalproject
         SqlCommand cm;
 
         DataTable tb;
+
+        public static string email_acc;
+                
         public Form1()
         {
             InitializeComponent();
@@ -49,6 +52,8 @@ namespace finalproject
             {
                 MessageBox.Show("Invalid Email or password");
             }
+
+            email_acc = txtEmail.Text;
         }
 
         private void txtCancel_Click(object sender, EventArgs e)
