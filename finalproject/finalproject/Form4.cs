@@ -59,7 +59,7 @@ namespace finalproject
 
         public void autoId()
         {
-            string s = "select top 1 id from reveived order by id desc ";
+            /*string s = "select top 1 id from reveived order by id desc ";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -71,7 +71,37 @@ namespace finalproject
             else
             {
                 txtGR.Text = "GR0001";
+            }*/
+
+            string s = "select top 1 id from reveived order by id desc ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+
+            if (tb.Rows.Count == 0)
+            {
+                txtGR.Text = "GR0001";
             }
+            else
+            {
+
+                string res = "";
+
+                int stt = tb.Rows.Count;
+                stt++;
+                if (stt < 10)
+                    res += "GR" + "000" + (stt).ToString();
+                else if (stt < 100)
+                    res += "GR" + "00" + (stt).ToString();
+                else if (stt < 1000)
+                    res += "GR" + "0" + (stt).ToString();
+                else
+                    res += "GR" + (stt).ToString();
+
+                txtGR.Text = res;
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -260,61 +290,9 @@ namespace finalproject
 
         private void button1_Click(object sender, EventArgs e)
         {
+  
 
-            /*string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
-
-            cn = new SqlConnection(sql);
-
-            cn.Open();
-
-            connect();
-
-            for (int i = 0; i < grd1.Rows.Count-1; i++)
-            {
-                //string newValue = grd1.Rows[i].Cells[0].Value.ToString(); // Lấy giá trị mới của ô
-                //string id = grd1.Rows[i].Cells["id"].Value.ToString(); // Lấy giá trị id của dòng tương ứng
-
-                //string connString = "your_connection_string";
-                //string query = "SELECT id FROM phone WHERE id = '" + newValue + "'"; // Lấy giá trị cột thứ 0 trong database
-                //string query = "select * from phone";
-                selectQuery("select * from phone");
-                //string ab = "";
-                //using (SqlConnection conn = new SqlConnection(sql))
-                //using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        
-                        while (reader.Read()) // Duyệt qua từng hàng trong bảng
-                        {
-                            // Lấy giá trị của cột thứ 0 trong hàng đang duyệt của database
-                            int dbValue = reader.GetInt32(reader.GetOrdinal("id")); // Thay column_name bằng tên cột tương ứng
-
-                            // Lấy giá trị của cột thứ 0 trong hàng đang duyệt của DataGridView
-                            int dgvValue = Convert.ToInt32(grd1.Rows[i].Cells[0].Value); // Giả sử cột thứ 0 là cột đầu tiên
-
-                            // So sánh giá trị của hai cột
-                            if (dbValue == dgvValue)
-                            {
-                                // Các giá trị khớp nhau
-                            }
-                            else
-                            {
-                                string query = "insert into phone values ('" + grd1.Rows[i].Cells[0].ToString() + "','" + grd1.Rows[i].Cells[1].ToString() + "','" + grd1.Rows[i].Cells[2].ToString() + "','" + grd1.Rows[i].Cells[3].ToString() + "','" + grd1.Rows[i].Cells[4].ToString() + "','" + grd1.Rows[i].Cells[5].ToString() + "','" + grd1.Rows[i].Cells[6].ToString() + "','" + grd1.Rows[i].Cells[7].ToString() + "')";
-                                cm = new SqlCommand(query, cn);
-                                cm.ExecuteNonQuery();
-                            }
-
-                        }
-                    }
-                    conn.Close();
-                }
-                
-
-            }*/
-
-            for(int i = 1; i < grd1.Rows.Count-1; i++)
+            for(int i = 0; i < grd1.Rows.Count-1; i++)
             {
 
                 string s = Convert.ToString(grd1.Rows[i].Cells[0].Value);
@@ -336,13 +314,41 @@ namespace finalproject
                     }
                     else
                     {
+                        for (int j = 0; j < grd2.Rows.Count - 1; j++)
+                        {
+                            string l = Convert.ToString(grd2.Rows[j].Cells[0].Value);
 
+                            if (l != null)
+                            {
+                                string query_1 = "select * from phone where id = '" + l + "'";
+
+                                DataTable dl = selectQuery(query);
+
+                                if (dl.Rows.Count > 0)
+                                {
+                                    int x = Convert.ToInt32(grd2.Rows[j].Cells[6].Value);
+                                    int y = Convert.ToInt32(grd1.Rows[i].Cells[6].Value);
+                                    int t = Convert.ToInt16(grd1.Rows[i].Cells[5].Value);
+                                    int z = x + y;
+                                    int w = z * t;
+
+                                    query = "update phone set brand = '" + grd1.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd1.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd1.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd1.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + grd1.Rows[i].Cells[6].Value.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd1.Rows[i].Cells[0].Value.ToString() + "'";
+                                    cm = new SqlCommand(query, cn);
+                                    cm.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                        
                     }
 
                     
                 }
                               
             }
+
+           
+
+            
 
             string sql = "delete from phone_fake";
             cm = new SqlCommand(sql, cn);
