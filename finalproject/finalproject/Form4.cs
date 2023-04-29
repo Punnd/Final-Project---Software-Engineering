@@ -332,7 +332,7 @@ namespace finalproject
                                     int z = x + y;
                                     int w = z * t;
 
-                                    query = "update phone set brand = '" + grd1.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd1.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd1.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd1.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + grd1.Rows[i].Cells[6].Value.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd1.Rows[i].Cells[0].Value.ToString() + "'";
+                                    query = "update phone set brand = '" + grd1.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd1.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd1.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd1.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd1.Rows[i].Cells[0].Value.ToString() + "'";
                                     cm = new SqlCommand(query, cn);
                                     cm.ExecuteNonQuery();
                                 }
