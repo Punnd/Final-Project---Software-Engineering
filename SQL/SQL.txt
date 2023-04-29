@@ -35,17 +35,30 @@ create table agent(
 create table reveived(
 	id	varchar(10) not null,
 	mail_ketoan	varchar(100),
-	id_phone	varchar(10),
-	soluong	int,
-	date datetime
+	date datetime,
+	total int
+)
+
+create table reveived_detail(
+	id_reveired varchar(10),
+	id_phone varchar(10),
+	quantity int,
+	total int
 )
 
 create table delivery(
 	id	varchar(10) not null,
+	mail_ketoan varchar(100),
 	id_agent	varchar(10),
-	id_phone	varchar(10),
-	soluong	int,
-	date datetime
+	date datetime,
+	total int
+)
+
+create table delivery_detail(
+	id_delivery varchar(10),
+	id_phone varchar(10),
+	quantity int,
+	total int
 )
 
 
