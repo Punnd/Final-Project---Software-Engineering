@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -290,12 +291,16 @@ namespace finalproject
 
         private void button1_Click(object sender, EventArgs e)
         {
-  
+            string id_acc = Form1.email_acc;
 
-            for(int i = 0; i < grd1.Rows.Count-1; i++)
+            int to = 0;
+
+            for (int i = 0; i < grd1.Rows.Count-1; i++)
             {
 
                 string s = Convert.ToString(grd1.Rows[i].Cells[0].Value);
+
+                
 
                 if (s != null)
                 {
@@ -339,16 +344,27 @@ namespace finalproject
                             }
                         }
                         
+                        
                     }
+
+
 
                     
                 }
-                              
+                
+                int a = Convert.ToInt32(grd1.Rows[i].Cells[7].Value);
+                string m = "insert into reveived_detail values ('" + txtGR.ToString() + "','" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
+
+                to += a;
+
+                cm = new SqlCommand(m, cn);
+                cm.ExecuteNonQuery();
             }
 
-           
+            string r = "insert into reveived values('" + txtGR.ToString() + "','" + id_acc.ToString() + "','" + DateTime.Today.ToString() + "','" + to.ToString()+ "')";
 
-            
+
+
 
             string sql = "delete from phone_fake";
             cm = new SqlCommand(sql, cn);

@@ -52,6 +52,22 @@ namespace finalproject
 
         }
 
+        public void connect()
+        {
+            string s = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            cn = new SqlConnection(s);
+            cn.Open();
+
+        }
+        public DataTable selectQuery(string sql)
+        {
+            connect();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, cn);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            return dt;
+        }
+
         public void showGRD1()
         {
 
@@ -84,11 +100,13 @@ namespace finalproject
         }
         private void delivery_Load(object sender, EventArgs e)
         {
-            string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            /*string sql = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
 
             cn = new SqlConnection(sql);
 
-            cn.Open();
+            cn.Open();*/
+
+            connect();
 
             formload();
         }
@@ -276,6 +294,45 @@ namespace finalproject
             }
 
             delivery_note.Text += "-----------------------------------------------\n\n";
+
+            for(int i = 0; i < grd2.Rows.Count - 1; i++)
+            {
+                string s = Convert.ToString(grd2.Rows[i].Cells[0].Value);
+
+                if(s != null)
+                {
+                    string query = "select * from phone where id = '" + s + "'";
+
+                    DataTable dt = selectQuery(query);
+                    if(dt.Rows.Count != 0)
+                    {
+                        for(int j = 0; j < grd1.Rows.Count -1 ; j++)
+                        {
+                            string l = Convert.ToString(grd1.Rows[j].Cells[0].Value);
+
+                            if (l != null)
+                            {
+                                string query_1 = "select * from phone where id = '" + l + "'";
+
+                                DataTable dl = selectQuery(query);
+
+                                if (dl.Rows.Count > 0)
+                                {
+                                    int x = Convert.ToInt32(grd1.Rows[j].Cells[6].Value);
+                                    int y = Convert.ToInt32(grd2.Rows[i].Cells[6].Value);
+                                    int t = Convert.ToInt16(grd1.Rows[i].Cells[5].Value);
+                                    int z = x - y;
+                                    int w = z * t;
+
+                                    query = "update phone set brand = '" + grd2.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd2.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd2.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd2.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd2.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd2.Rows[i].Cells[0].Value.ToString() + "'";
+                                    cm = new SqlCommand(query, cn);
+                                    cm.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
         }
     }
