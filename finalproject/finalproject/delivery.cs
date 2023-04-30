@@ -68,6 +68,52 @@ namespace finalproject
             return dt;
         }
 
+        public void autoId()
+        {
+            /*string s = "select top 1 id from reveived order by id desc ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+            if (tb.Rows.Count > 0)
+            {
+                txtGR.Text = "GR0001";
+            }
+            else
+            {
+                txtGR.Text = "GR0001";
+            }*/
+
+            string s = "select top 1 id from delivery order by id desc ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+
+            if (tb.Rows.Count == 0)
+            {
+                txtiddelivery.Text = "DL0001";
+            }
+            else
+            {
+
+                string res = "";
+
+                int stt = tb.Rows.Count;
+                stt++;
+                if (stt < 10)
+                    res += "DL" + "000" + (stt).ToString();
+                else if (stt < 100)
+                    res += "DL" + "00" + (stt).ToString();
+                else if (stt < 1000)
+                    res += "DL" + "0" + (stt).ToString();
+                else
+                    res += "DL" + (stt).ToString();
+
+                txtiddelivery.Text = res;
+            }
+
+        }
         public void showGRD1()
         {
 
@@ -295,6 +341,7 @@ namespace finalproject
 
             delivery_note.Text += "-----------------------------------------------\n\n";
 
+
             for(int i = 0; i < grd2.Rows.Count - 1; i++)
             {
                 string s = Convert.ToString(grd2.Rows[i].Cells[0].Value);
@@ -324,7 +371,7 @@ namespace finalproject
                                     int z = x - y;
                                     int w = z * t;
 
-                                    query = "update phone set brand = '" + grd2.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd2.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd2.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd2.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd2.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd2.Rows[i].Cells[0].Value.ToString() + "'";
+                                    query = "update phone set brand = '" + grd2.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd2.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd2.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd2.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd2.Rows[i].Cells[0].Value.ToString() + "'";
                                     cm = new SqlCommand(query, cn);
                                     cm.ExecuteNonQuery();
                                 }
@@ -333,6 +380,11 @@ namespace finalproject
                     }
                 }
             }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
 
         }
     }

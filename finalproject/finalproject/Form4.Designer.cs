@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.grd2 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -53,15 +54,16 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.txtGR = new System.Windows.Forms.TextBox();
             this.grd1 = new System.Windows.Forms.DataGridView();
-            this.grd2 = new System.Windows.Forms.DataGridView();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.grd2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
@@ -91,6 +93,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 711);
             this.panel1.TabIndex = 7;
+            // 
+            // grd2
+            // 
+            this.grd2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grd2.Location = new System.Drawing.Point(760, 270);
+            this.grd2.Name = "grd2";
+            this.grd2.RowTemplate.Height = 25;
+            this.grd2.Size = new System.Drawing.Size(329, 366);
+            this.grd2.TabIndex = 25;
+            this.grd2.Click += new System.EventHandler(this.grd2_Click);
             // 
             // button7
             // 
@@ -348,15 +360,18 @@
             this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
-            // grd2
+            // button8
             // 
-            this.grd2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd2.Location = new System.Drawing.Point(760, 270);
-            this.grd2.Name = "grd2";
-            this.grd2.RowTemplate.Height = 25;
-            this.grd2.Size = new System.Drawing.Size(329, 366);
-            this.grd2.TabIndex = 25;
-            this.grd2.Click += new System.EventHandler(this.grd2_Click);
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(799, 24);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(183, 55);
+            this.button8.TabIndex = 26;
+            this.button8.Text = "New receive";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Form4
             // 
@@ -370,8 +385,8 @@
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +420,6 @@
         private Button button7;
         private TextBox txtGR;
         private DataGridView grd2;
+        private Button button8;
     }
 }

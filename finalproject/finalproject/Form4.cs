@@ -107,7 +107,7 @@ namespace finalproject
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string s = "select top 1 id from reveived order by id desc ";
+            /*string s = "select top 1 id from reveived order by id desc ";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -119,7 +119,7 @@ namespace finalproject
             else
             {
                 txtGR.Text = "GR0001";
-            }
+            }*/
 
             
         }
@@ -164,7 +164,7 @@ namespace finalproject
 
             button6.Enabled = false;
 
-            button7.Enabled = true;
+            button7.Enabled = false;
 
 
             
@@ -206,7 +206,7 @@ namespace finalproject
 
             dk = 1;
 
-            autoId();
+            
             button4.Enabled = true;
 
 
@@ -353,7 +353,7 @@ namespace finalproject
                 }
                 
                 int a = Convert.ToInt32(grd1.Rows[i].Cells[7].Value);
-                string m = "insert into reveived_detail values ('" + txtGR.ToString() + "','" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
+                string m = "insert into reveived_detail values ('" + txtGR.Text + "','" + grd1.Rows[i].Cells[0].Value.ToString() + "','" + grd1.Rows[i].Cells[6].Value.ToString() + "','" + grd1.Rows[i].Cells[7].Value.ToString() + "')";
 
                 to += a;
 
@@ -361,7 +361,9 @@ namespace finalproject
                 cm.ExecuteNonQuery();
             }
 
-            string r = "insert into reveived values('" + txtGR.ToString() + "','" + id_acc.ToString() + "','" + DateTime.Today.ToString() + "','" + to.ToString()+ "')";
+            string r = "insert into reveived values ('" + txtGR.Text + "','" + id_acc.ToString() + "','" + DateTime.Now.ToString() + "','" + to + "')";
+            cm = new SqlCommand(r, cn);
+            cm.ExecuteNonQuery();
 
 
 
@@ -377,6 +379,12 @@ namespace finalproject
         private void grd2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            button7.Enabled = true;
+            autoId();
         }
         //public string 
     }

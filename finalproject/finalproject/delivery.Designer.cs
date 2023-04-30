@@ -65,6 +65,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtiddelivery = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             this.grbox1.SuspendLayout();
@@ -74,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.txtemail);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.grd2);
@@ -480,6 +482,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.ForeColor = System.Drawing.SystemColors.Control;
+            this.button7.Location = new System.Drawing.Point(262, 10);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(252, 35);
+            this.button7.TabIndex = 31;
+            this.button7.Text = "New delivery";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // delivery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -539,5 +554,6 @@
         private Button button6;
         private TextBox txtemail;
         private Label label14;
+        private Button button7;
     }
 }

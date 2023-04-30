@@ -35,6 +35,8 @@
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.incomeGoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outgoingStockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,9 @@
             // 
             // reportToolStripMenuItem
             // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.incomeGoodsToolStripMenuItem,
+            this.outgoingStockReportToolStripMenuItem});
             this.reportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
@@ -97,6 +102,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 800);
             this.panel1.TabIndex = 1;
+            // 
+            // incomeGoodsToolStripMenuItem
+            // 
+            this.incomeGoodsToolStripMenuItem.Name = "incomeGoodsToolStripMenuItem";
+            this.incomeGoodsToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.incomeGoodsToolStripMenuItem.Text = "Incoming stock report ";
+            // 
+            // outgoingStockReportToolStripMenuItem
+            // 
+            this.outgoingStockReportToolStripMenuItem.Name = "outgoingStockReportToolStripMenuItem";
+            this.outgoingStockReportToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.outgoingStockReportToolStripMenuItem.Text = "Outgoing stock report";
             // 
             // main
             // 
@@ -126,5 +143,7 @@
         private ToolStripMenuItem deliveryToolStripMenuItem;
         private ToolStripMenuItem reportToolStripMenuItem;
         private Panel panel1;
+        private ToolStripMenuItem incomeGoodsToolStripMenuItem;
+        private ToolStripMenuItem outgoingStockReportToolStripMenuItem;
     }
 }
