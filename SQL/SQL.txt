@@ -29,6 +29,7 @@ create table phone(
 create table agent(
 	id	varchar(10) not null,
 	name	varchar(2000),
+	Email varchar(max),
 	address	varchar(500)
 )
 
