@@ -74,7 +74,7 @@ namespace finalproject
                 txtGR.Text = "GR0001";
             }*/
 
-            string s = "select top 1 id from reveived order by id desc ";
+            string s = "select DISTINCT id FROM reveived order by id ";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -182,6 +182,8 @@ namespace finalproject
 
             cn.Open();*/
 
+            //button7.Enabled = false;
+
             connect();
 
             formload();
@@ -245,6 +247,8 @@ namespace finalproject
                 cm.ExecuteNonQuery();
             }
             formload();
+
+            button7.Enabled = true;
         }
 
         private void button5_Click(object sender, EventArgs e)
