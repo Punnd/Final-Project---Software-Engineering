@@ -110,10 +110,26 @@ namespace finalproject
 
                 grd1.DataSource = tb;
 
-                for (int i = 0; i < grd1.Rows.Count - 1; i++)
+                int check = grd1.Rows.Count - 1;
+
+                string m = "";
+
+                if ( check == 0)
                 {
 
-                    string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[i].Cells[0].Value +"'";
+                    string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[0].Cells[0].Value + "'";
+
+                }
+                else
+                {
+                    for (int i = 0; i < grd1.Rows.Count - 1; i++)
+                    {
+
+                        m = grd1.Rows[i].Cells[0].Value.ToString(); 
+
+                    }
+
+                    string detail = "select * from reveived_detail where id_reveived in ( '" + m + "')";
 
                     data = new SqlDataAdapter(detail, cn);
 
@@ -122,13 +138,65 @@ namespace finalproject
                     data.Fill(tb);
 
                     grd2.DataSource = tb;
-
                 }
+                
 
                 
             }
             
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string s = DateTime.Today.AddDays(-1).ToString("yyyy/MM/dd");
+            if(s != null)
+            {
+                string query = "select * from reveived where date = '" + s + "'";
+
+                data = new SqlDataAdapter(query, cn);
+
+                tb = new DataTable();
+
+                data.Fill(tb);
+
+                int check = grd1.Rows.Count - 1;
+
+                string m = "";
+
+                grd1.DataSource = tb;
+                if (check == 0)
+                {
+
+                    string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[0].Cells[0].Value + "'";
+
+                }
+                else
+                {
+                    for (int i = 0; i < grd1.Rows.Count - 1; i++)
+                    {
+                        if(i != grd1.Rows.Count -1 )
+                        {
+                            m = grd1.Rows[i].Cells[0].Value.ToString() + "," + grd1.Rows[i + 1].Cells[0].Value.ToString();
+                        }
+                        else
+                        {
+                            m = grd1.Rows[i].Cells[0].Value.ToString();
+                        }
+
+                    }
+
+                    string detail = "select * from reveived_detail where id_reveived in ( '" + m + "')";
+
+                    data = new SqlDataAdapter(detail, cn);
+
+                    tb = new DataTable();
+
+                    data.Fill(tb);
+
+                    grd2.DataSource = tb;
+                }
+            }
         }
     }
 }

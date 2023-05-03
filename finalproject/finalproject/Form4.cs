@@ -337,7 +337,7 @@ namespace finalproject
                                 {
                                     int x = Convert.ToInt32(grd2.Rows[j].Cells[6].Value);
                                     int y = Convert.ToInt32(grd1.Rows[i].Cells[6].Value);
-                                    int t = Convert.ToInt16(grd1.Rows[i].Cells[5].Value);
+                                    int t = Convert.ToInt32(grd1.Rows[i].Cells[5].Value);
                                     int z = x + y;
                                     int w = z * t;
 
