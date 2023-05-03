@@ -62,5 +62,26 @@ namespace finalproject
             Form1 f = new Form1();
             f.ShowDialog();
         }
+
+        private void incomeGoodsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*inre in = new inre();
+            in.TopLevel = false;
+            in.FormBorderStyle = FormBorderStyle.None;
+            in.Dock = DockStyle.Fill;
+            panel1.Controls.Add(in);
+            panel1.Tag = in;
+            in.Show();*/
+
+            //incoming in = new incoming();
+
+            Form2 f2 = new Form2();
+            f2.TopLevel = false;
+            f2.FormBorderStyle = FormBorderStyle.None;
+            f2.Dock = DockStyle.Fill;
+            panel1.Controls.Add(f2);
+            panel1.Tag = f2;
+            f2.Show();
+        }
     }
 }

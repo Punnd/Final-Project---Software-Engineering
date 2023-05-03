@@ -365,7 +365,7 @@ namespace finalproject
                 cm.ExecuteNonQuery();
             }
 
-            string r = "insert into reveived values ('" + txtGR.Text + "','" + id_acc.ToString() + "','" + DateTime.Now.ToString() + "','" + to + "')";
+            string r = "insert into reveived values ('" + txtGR.Text + "','" + id_acc.ToString() + "','" + DateTime.Today.ToString() + "','" + to + "')";
             cm = new SqlCommand(r, cn);
             cm.ExecuteNonQuery();
 

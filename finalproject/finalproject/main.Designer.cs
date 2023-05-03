@@ -34,9 +34,9 @@
             this.gooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.incomeGoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outgoingStockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +95,19 @@
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
             this.reportToolStripMenuItem.Text = "Report";
             // 
+            // incomeGoodsToolStripMenuItem
+            // 
+            this.incomeGoodsToolStripMenuItem.Name = "incomeGoodsToolStripMenuItem";
+            this.incomeGoodsToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.incomeGoodsToolStripMenuItem.Text = "Incoming stock report ";
+            this.incomeGoodsToolStripMenuItem.Click += new System.EventHandler(this.incomeGoodsToolStripMenuItem_Click);
+            // 
+            // outgoingStockReportToolStripMenuItem
+            // 
+            this.outgoingStockReportToolStripMenuItem.Name = "outgoingStockReportToolStripMenuItem";
+            this.outgoingStockReportToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.outgoingStockReportToolStripMenuItem.Text = "Outgoing stock report";
+            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -102,18 +115,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 800);
             this.panel1.TabIndex = 1;
-            // 
-            // incomeGoodsToolStripMenuItem
-            // 
-            this.incomeGoodsToolStripMenuItem.Name = "incomeGoodsToolStripMenuItem";
-            this.incomeGoodsToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
-            this.incomeGoodsToolStripMenuItem.Text = "Incoming stock report ";
-            // 
-            // outgoingStockReportToolStripMenuItem
-            // 
-            this.outgoingStockReportToolStripMenuItem.Name = "outgoingStockReportToolStripMenuItem";
-            this.outgoingStockReportToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
-            this.outgoingStockReportToolStripMenuItem.Text = "Outgoing stock report";
             // 
             // main
             // 
