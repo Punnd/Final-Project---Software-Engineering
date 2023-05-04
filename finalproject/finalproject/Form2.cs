@@ -81,7 +81,9 @@ namespace finalproject
 
         void formload()
         {
-            monthCalendar1.Enabled = false;
+            dateTimePicker1.Enabled = false;
+
+            dateTimePicker1.Visible = false;
 
             showGRD1();
             
@@ -111,38 +113,6 @@ namespace finalproject
 
                 grd1.DataSource = tb;
 
-                int check = grd1.Rows.Count - 1;
-
-                string m = "";
-
-                if ( check == 0)
-                {
-
-                    string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[0].Cells[0].Value + "'";
-
-                }
-                else
-                {
-                    for (int i = 0; i < grd1.Rows.Count - 1; i++)
-                    {
-
-                        m = grd1.Rows[i].Cells[0].Value.ToString(); 
-
-                    }
-
-                    string detail = "select * from reveived_detail where id_reveived in ( '" + m + "')";
-
-                    data = new SqlDataAdapter(detail, cn);
-
-                    tb = new DataTable();
-
-                    data.Fill(tb);
-
-                    grd2.DataSource = tb;
-                }
-                
-
-                
             }
             
 
@@ -161,42 +131,10 @@ namespace finalproject
 
                 data.Fill(tb);
 
-                int check = grd1.Rows.Count - 1;
-
-                string m = "";
+                
 
                 grd1.DataSource = tb;
-                /*if (check == 0)
-                {
-
-                    string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[0].Cells[0].Value + "'";
-
-                }
-                else
-                {
-                    for (int i = 0; i < grd1.Rows.Count - 1; i++)
-                    {
-                        if(i != grd1.Rows.Count -1 )
-                        {
-                            m = grd1.Rows[i].Cells[0].Value.ToString() + "," + grd1.Rows[i + 1].Cells[0].Value.ToString();
-                        }
-                        else
-                        {
-                            m = grd1.Rows[i].Cells[0].Value.ToString();
-                        }
-
-                    }
-
-                    string detail = "select * from reveived_detail where id_reveived in ( '" + m + "')";
-
-                    data = new SqlDataAdapter(detail, cn);
-
-                    tb = new DataTable();
-
-                    data.Fill(tb);
-
-                    grd2.DataSource = tb;
-                }*/
+                
             }
         }
 
@@ -211,6 +149,117 @@ namespace finalproject
             data.Fill(tb);
 
             grd2.DataSource = tb;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            string s1 = DateTime.Today.ToString("yyyy/MM/dd");
+
+            
+
+            string s2 = DateTime.Today.AddDays(-1).ToString("yyyy/MM/dd");
+
+            
+
+            string s3 = DateTime.Today.AddDays(-2).ToString("yyyy/MM/dd");
+
+            
+
+            string s4 = DateTime.Today.AddDays(-3).ToString("yyyy/MM/dd");
+
+            
+
+            string s5 = DateTime.Today.AddDays(-4).ToString("yyyy/MM/dd");
+
+            
+
+            string s6 = DateTime.Today.AddDays(-5).ToString("yyyy/MM/dd");
+
+           
+
+            string s7 = DateTime.Today.AddDays(-6).ToString("yyyy/MM/dd");
+
+
+            if ( s1 != null && s2 != null && s3 != null && s4 != null && s5 != null && s6 != null && s7 != null)
+            {
+                string query = "select * from reveived where date in ('" + s1 + "','" + s2 +"','" + s3 +"','" + s4 + "','" + s5 + "','" + s6 + "','" + s7 + "')";
+                data = new SqlDataAdapter(query, cn);
+
+                tb = new DataTable();
+
+                data.Fill(tb);
+
+                grd1.DataSource = tb;
+            }
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string s = DateTime.Today.Month.ToString();
+            if(s != null)
+            {
+                string query = "select * from reveived where MONTH(date) = '" + s + "'";
+
+                data = new SqlDataAdapter(query, cn);
+
+                tb = new DataTable();
+
+                data.Fill(tb);
+
+                grd1.DataSource = tb;
+            }
+
+            
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string s = DateTime.Today.AddMonths(-1).Month.ToString();
+            
+            if (s != null)
+            {
+                string query = "select * from reveived where MONTH(date) = '" + s + "'";
+
+                data = new SqlDataAdapter(query, cn);
+
+                tb = new DataTable();
+
+                data.Fill(tb);
+
+                grd1.DataSource = tb;
+            }
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            string s = dateTimePicker1.Value.ToString("yyyy/MM/dd");
+
+            if (s != null)
+            {
+                string query = "select * from reveived where date = '" + s + "'";
+
+                data = new SqlDataAdapter(query, cn);
+
+                tb = new DataTable();
+
+                data.Fill(tb);
+
+                grd1.DataSource = tb;
+
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Visible = true;
+
+            dateTimePicker1.Enabled = true;
+
+
         }
     }
 }
