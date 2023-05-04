@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace finalproject
 {
@@ -84,7 +85,7 @@ namespace finalproject
 
             showGRD1();
             
-            showGRD2();
+            //showGRD2();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -165,7 +166,7 @@ namespace finalproject
                 string m = "";
 
                 grd1.DataSource = tb;
-                if (check == 0)
+                /*if (check == 0)
                 {
 
                     string detail = "select * from reveived_detail where id_reveived = '" + grd1.Rows[0].Cells[0].Value + "'";
@@ -195,8 +196,21 @@ namespace finalproject
                     data.Fill(tb);
 
                     grd2.DataSource = tb;
-                }
+                }*/
             }
+        }
+
+        private void grd1_Click(object sender, EventArgs e)
+        {
+            string s = "select * from reveived_detail where id_reveived = '" + grd1.CurrentRow.Cells[0].Value.ToString() +"' ";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd2.DataSource = tb;
         }
     }
 }

@@ -148,6 +148,7 @@
             this.grd1.RowTemplate.Height = 25;
             this.grd1.Size = new System.Drawing.Size(580, 550);
             this.grd1.TabIndex = 1;
+            this.grd1.Click += new System.EventHandler(this.grd1_Click);
             // 
             // Form2
             // 
