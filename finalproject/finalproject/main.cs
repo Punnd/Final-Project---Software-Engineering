@@ -83,5 +83,16 @@ namespace finalproject
             panel1.Tag = f2;
             f2.Show();
         }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.TopLevel = false;
+            f3.FormBorderStyle = FormBorderStyle.None;
+            f3.Dock = DockStyle.Fill;
+            panel1.Controls.Add(f3);
+            panel1.Tag = f3;
+            f3.Show();
+        }
     }
 }

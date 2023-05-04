@@ -37,6 +37,7 @@
             this.incomeGoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outgoingStockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.accountToolStripMenuItem,
             this.gooToolStripMenuItem,
             this.deliveryToolStripMenuItem,
+            this.orderToolStripMenuItem,
             this.reportToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -116,6 +118,14 @@
             this.panel1.Size = new System.Drawing.Size(1200, 800);
             this.panel1.TabIndex = 1;
             // 
+            // orderToolStripMenuItem
+            // 
+            this.orderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.orderToolStripMenuItem.Text = "Order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -146,5 +156,6 @@
         private Panel panel1;
         private ToolStripMenuItem incomeGoodsToolStripMenuItem;
         private ToolStripMenuItem outgoingStockReportToolStripMenuItem;
+        private ToolStripMenuItem orderToolStripMenuItem;
     }
 }
