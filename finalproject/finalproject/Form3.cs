@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,14 @@ namespace finalproject
 {
     public partial class Form3 : Form
     {
+
+        SqlConnection cn;
+
+        SqlDataAdapter data;
+
+        SqlCommand cm;
+
+        DataTable tb;
         public Form3()
         {
             InitializeComponent();
@@ -20,6 +29,224 @@ namespace finalproject
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            connect();
+
+            formload();
+        }
+
+        public void connect()
+        {
+            string s = "initial catalog = final; data source = LAPTOP-90QEEVDN; integrated security = true";
+            cn = new SqlConnection(s);
+            cn.Open();
+
+        }
+        public DataTable selectQuery(string sql)
+        {
+            connect();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, cn);
+            DataTable dt = new DataTable();
+            dataAdapter.Fill(dt);
+            return dt;
+        }
+
+        public void showGRD1()
+        {
+
+            string s = "select * from P_Order";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd1.DataSource = tb;
+
+        }
+
+        public void showGRD2()
+        {
+
+            string s = "select * from Order_detail";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd2.DataSource = tb;
+
+        }
+
+        public void showGRD3()
+        {
+
+            string s = "select * from phone";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd3.DataSource = tb;
+
+        }
+
+        void formload()
+        {
+            button1.Visible = false;
+
+            button2.Visible = false;
+
+            showGRD1();
+
+            showGRD3();
+        }
+
+        private void grd1_Click(object sender, EventArgs e)
+        {
+            button1.Visible = true;
+
+            button2.Visible = true;
+
+            string s = "select * from Order_detail where order_id = '" + grd1.CurrentRow.Cells[0].Value.ToString() + "' ";
+
+            data = new SqlDataAdapter(s, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd2.DataSource = tb;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string s1 = "delete from Order_detail where order_id = '" + grd1.CurrentRow.Cells[0].Value.ToString() + "'";
+            string s2 = "delete from P_Order where id = '" + grd1.CurrentRow.Cells[0].Value.ToString() + "'";
+
+            data = new SqlDataAdapter(s1, cn);
+
+            data = new SqlDataAdapter(s2, cn);
+
+            tb = new DataTable();
+
+            data.Fill(tb);
+
+            grd2.DataSource = tb;
+
+            formload();
+
+        }
+
+        public void autoId()
+        {
+
+            string s = "select DISTINCT id FROM delivery order by id ";
+            data = new SqlDataAdapter(s, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+
+            if (tb.Rows.Count == 0)
+            {
+                //txtGR.Text = "GR0001";
+            }
+            else
+            {
+
+                string res = "";
+
+                int stt = tb.Rows.Count;
+                stt++;
+                if (stt < 10)
+                    res += "GR" + "000" + (stt).ToString();
+                else if (stt < 100)
+                    res += "GR" + "00" + (stt).ToString();
+                else if (stt < 1000)
+                    res += "GR" + "0" + (stt).ToString();
+                else
+                    res += "GR" + (stt).ToString();
+
+                //txtGR.Text = res;
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            string id_acc = Form1.email_acc;
+
+            int a = 0;
+
+            for( int i = 0; i < grd2.Rows.Count -1; i++ )
+            {
+
+                int s = Convert.ToInt32(grd2.Rows[i].Cells[0].Value);
+
+                string l = Convert.ToString(grd2.Rows[i].Cells[2].Value);
+
+                if( s != null && l != null)
+                {
+
+                    string query = "select * from phone where id = '" + l +"'"; 
+
+                    DataTable dt = selectQuery(query);
+
+                    if(dt.Rows.Count != 0)
+                    {
+                        for ( int j = 0; j < grd3.Rows.Count - 1; j++)
+                        {
+                            int x = Convert.ToInt32(grd3.Rows[j].Cells[5].Value);
+
+                            int y = Convert.ToInt32(grd2.Rows[i].Cells[4].Value);
+
+                            int z = Convert.ToInt32(grd3.Rows[j].Cells[6].Value);
+
+                            int w = z - y;
+
+                            int t = w * x;
+
+                            string query_1 = "update phone set quantity = '" + y + "' where id = '" + l + "' ";
+
+                            string query_2 = "update phone set total = '" + t + "' where id = '" + l + "'";
+
+                            string query_3 = "update phoen set quantity = '" + w + "' where id = '" + l + "'";
+
+                            cm = new SqlCommand(query_1, cn);
+                            cm = new SqlCommand(query_2, cn);
+                            cm.ExecuteNonQuery();
+
+
+                        }
+                        //string x = Convert.ToString(grd2.Rows[i].Cells[2].Value);
+                        
+                        
+
+
+                    }
+
+                }
+
+                int b = Convert.ToInt32(grd2.Rows[i].Cells[6].Value);
+
+                a = a + b;
+
+                string detail = "insert into reveived_detail values ";
+
+                formload();
+
+
+
+            }
         }
     }
 }

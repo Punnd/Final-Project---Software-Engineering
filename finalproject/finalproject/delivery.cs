@@ -69,22 +69,8 @@ namespace finalproject
         }
 
         public void autoId()
-        {
-            /*string s = "select top 1 id from reveived order by id desc ";
-            data = new SqlDataAdapter(s, cn);
-            tb = new DataTable();
-            data.Fill(tb);
-
-            if (tb.Rows.Count > 0)
-            {
-                txtGR.Text = "GR0001";
-            }
-            else
-            {
-                txtGR.Text = "GR0001";
-            }*/
-
-            string s = "select top 1 id from delivery order by id desc ";
+        { 
+            string s = "select DISTINCT id from delivery order by id ";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -334,7 +320,7 @@ namespace finalproject
 
             delivery_note.Text += "List of phones: " + "\n";
             
-            for(int i = 1; i < grd2.Rows.Count-1 ; i++)
+            for(int i = 0; i < grd2.Rows.Count-1 ; i++)
             {
                 delivery_note.Text += i + ":" + grd2.Rows[i].Cells[0].Value.ToString() + "," + grd2.Rows[i].Cells[5].Value.ToString() + "," + grd2.Rows[i].Cells[6].Value.ToString() + " - Total : " + grd2.Rows[i].Cells[7].Value.ToString() + "\n";
             }
@@ -361,7 +347,7 @@ namespace finalproject
                             {
                                 string query_1 = "select * from phone where id = '" + l + "'";
 
-                                DataTable dl = selectQuery(query);
+                                DataTable dl = selectQuery(query_1);
 
                                 if (dl.Rows.Count > 0)
                                 {
@@ -384,6 +370,13 @@ namespace finalproject
         }
 
         private void button7_Click(object sender, EventArgs e)
+        {
+            autoId();
+
+            //formload();
+        }
+
+        private void delivery_note_TextChanged(object sender, EventArgs e)
         {
 
         }

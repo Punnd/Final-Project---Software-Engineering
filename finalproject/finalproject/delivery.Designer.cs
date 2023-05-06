@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.grd2 = new System.Windows.Forms.DataGridView();
@@ -65,7 +66,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txtiddelivery = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             this.grbox1.SuspendLayout();
@@ -96,9 +96,22 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 760);
+            this.panel1.Size = new System.Drawing.Size(1169, 760);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.ForeColor = System.Drawing.SystemColors.Control;
+            this.button7.Location = new System.Drawing.Point(262, 10);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(252, 35);
+            this.button7.TabIndex = 31;
+            this.button7.Text = "New delivery";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // txtemail
             // 
@@ -392,6 +405,7 @@
             this.delivery_note.Size = new System.Drawing.Size(558, 397);
             this.delivery_note.TabIndex = 9;
             this.delivery_note.Text = "";
+            this.delivery_note.TextChanged += new System.EventHandler(this.delivery_note_TextChanged);
             // 
             // label5
             // 
@@ -481,19 +495,6 @@
             this.label1.Size = new System.Drawing.Size(30, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(262, 10);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(252, 35);
-            this.button7.TabIndex = 31;
-            this.button7.Text = "New delivery";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // delivery
             // 
