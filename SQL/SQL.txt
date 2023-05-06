@@ -26,6 +26,17 @@ create table phone(
 )
 
 
+create table phone_fake(
+	id_f	varchar(10) not null,
+	brand_f	varchar(50),
+	name_f	varchar(50),
+	ram_f	int,
+	gb_f	int,
+	price_f	int,
+	quantity_f	int,
+	total_f	int
+)
+
 create table agent(
 	id	varchar(10) not null,
 	name	varchar(2000),
