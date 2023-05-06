@@ -35,6 +35,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.grd3 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.id_agent = new System.Windows.Forms.TextBox();
+            this.id_order = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd3)).BeginInit();
@@ -99,10 +102,10 @@
             // grd3
             // 
             this.grd3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd3.Location = new System.Drawing.Point(10, 401);
+            this.grd3.Location = new System.Drawing.Point(10, 390);
             this.grd3.Name = "grd3";
             this.grd3.RowTemplate.Height = 25;
-            this.grd3.Size = new System.Drawing.Size(1166, 258);
+            this.grd3.Size = new System.Drawing.Size(1166, 269);
             this.grd3.TabIndex = 5;
             // 
             // label1
@@ -116,6 +119,30 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Warehouse";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(520, 726);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(197, 23);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Visible = false;
+            // 
+            // id_agent
+            // 
+            this.id_agent.Location = new System.Drawing.Point(520, 667);
+            this.id_agent.Name = "id_agent";
+            this.id_agent.Size = new System.Drawing.Size(197, 23);
+            this.id_agent.TabIndex = 8;
+            this.id_agent.Visible = false;
+            // 
+            // id_order
+            // 
+            this.id_order.Location = new System.Drawing.Point(733, 665);
+            this.id_order.Name = "id_order";
+            this.id_order.Size = new System.Drawing.Size(197, 23);
+            this.id_order.TabIndex = 9;
+            this.id_order.Visible = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -123,6 +150,9 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.id_order);
+            this.Controls.Add(this.id_agent);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grd3);
             this.Controls.Add(this.button3);
@@ -149,5 +179,8 @@
         private Button button3;
         private DataGridView grd3;
         private Label label1;
+        private TextBox textBox1;
+        private TextBox id_agent;
+        private TextBox id_order;
     }
 }

@@ -116,6 +116,10 @@ namespace finalproject
 
             button2.Visible = true;
 
+            id_agent.Text = grd1.CurrentRow.Cells[1].Value.ToString();
+
+            id_order.Text = grd1.CurrentRow.Cells[0].Value.ToString();
+
             string s = "select * from Order_detail where order_id = '" + grd1.CurrentRow.Cells[0].Value.ToString() + "' ";
 
             data = new SqlDataAdapter(s, cn);
@@ -157,7 +161,7 @@ namespace finalproject
 
             if (tb.Rows.Count == 0)
             {
-                //txtGR.Text = "GR0001";
+                textBox1.Text = "DL0001";
             }
             else
             {
@@ -167,15 +171,15 @@ namespace finalproject
                 int stt = tb.Rows.Count;
                 stt++;
                 if (stt < 10)
-                    res += "GR" + "000" + (stt).ToString();
+                    res += "DL" + "000" + (stt).ToString();
                 else if (stt < 100)
-                    res += "GR" + "00" + (stt).ToString();
+                    res += "DL" + "00" + (stt).ToString();
                 else if (stt < 1000)
-                    res += "GR" + "0" + (stt).ToString();
+                    res += "DL" + "0" + (stt).ToString();
                 else
-                    res += "GR" + (stt).ToString();
+                    res += "DL" + (stt).ToString();
 
-                //txtGR.Text = res;
+                textBox1.Text = res;
             }
 
         }
@@ -186,6 +190,8 @@ namespace finalproject
             string id_acc = Form1.email_acc;
 
             int a = 0;
+
+            autoId();
 
             for( int i = 0; i < grd2.Rows.Count -1; i++ )
             {
@@ -205,25 +211,34 @@ namespace finalproject
                     {
                         for ( int j = 0; j < grd3.Rows.Count - 1; j++)
                         {
-                            int x = Convert.ToInt32(grd3.Rows[j].Cells[5].Value);
+                            string or_de = grd2.Rows[i].Cells[2].ToString();
 
-                            int y = Convert.ToInt32(grd2.Rows[i].Cells[4].Value);
+                            string phone = grd3.Rows[j].Cells[0].ToString();
 
-                            int z = Convert.ToInt32(grd3.Rows[j].Cells[6].Value);
+                            if( or_de == phone)
+                            {
+                                int x = Convert.ToInt32(grd3.Rows[j].Cells[5].Value);
 
-                            int w = z - y;
+                                int y = Convert.ToInt32(grd2.Rows[i].Cells[4].Value);
 
-                            int t = w * x;
+                                int z = Convert.ToInt32(grd3.Rows[j].Cells[6].Value);
 
-                            string query_1 = "update phone set quantity = '" + y + "' where id = '" + l + "' ";
+                                int w = z - y;
 
-                            string query_2 = "update phone set total = '" + t + "' where id = '" + l + "'";
+                                int t = w * x;
 
-                            string query_3 = "update phoen set quantity = '" + w + "' where id = '" + l + "'";
+                                string query_1 = "update phone set quantity = '" + w + "' where id = '" + l + "' ";
 
-                            cm = new SqlCommand(query_1, cn);
-                            cm = new SqlCommand(query_2, cn);
-                            cm.ExecuteNonQuery();
+                                string query_2 = "update phone set total = '" + t + "' where id = '" + l + "'";
+
+                                //string query_3 = "update phoen set quantity = '" + w + "' where id = '" + l + "'";
+
+                                cm = new SqlCommand(query_1, cn);
+                                cm = new SqlCommand(query_2, cn);
+                                cm.ExecuteNonQuery();
+
+                            }
+                            
 
 
                         }
@@ -240,13 +255,28 @@ namespace finalproject
 
                 a = a + b;
 
-                string detail = "insert into reveived_detail values ";
-
-                formload();
-
-
+                string detail = "insert into delivery_detail values ('" + textBox1.Text +"', '" + grd2.Rows[i].Cells[2].Value.ToString() + "','" + grd2.Rows[i].Cells[4].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value.ToString() + "')";
+                cm = new SqlCommand(detail, cn);
+                cm.ExecuteNonQuery();
+                
 
             }
+
+            //textBox1: id of delivery
+
+            string deliveryy = "insert into delivery values ('" + textBox1.Text + "', '" + id_acc.ToString() +"', '" + id_agent.Text + "', '"  + DateTime.Today.ToString() + "', '" + a + "') ";
+            cm = new SqlCommand(deliveryy, cn);
+            cm.ExecuteNonQuery();
+
+
+            string sql = "delete from Order_detail where order_id = " + id_order.Text + ""; 
+            cm = new SqlCommand(sql, cn);
+            cm.ExecuteNonQuery();
+
+            formload();
+
         }
+
+
     }
 }
