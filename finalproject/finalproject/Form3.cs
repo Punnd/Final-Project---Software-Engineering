@@ -107,6 +107,8 @@ namespace finalproject
 
             showGRD1();
 
+            //showGRD2();
+
             showGRD3();
         }
 
@@ -211,11 +213,11 @@ namespace finalproject
                     {
                         for ( int j = 0; j < grd3.Rows.Count - 1; j++)
                         {
-                            string or_de = grd2.Rows[i].Cells[2].ToString();
+                            //string or_de = grd2.Rows[i].Cells[2].ToString();
 
-                            string phone = grd3.Rows[j].Cells[0].ToString();
+                            string phone = grd3.Rows[j].Cells[0].Value.ToString();
 
-                            if( or_de == phone)
+                            if( String.Compare(l,phone, true) ==0 )
                             {
                                 int x = Convert.ToInt32(grd3.Rows[j].Cells[5].Value);
 
@@ -228,12 +230,9 @@ namespace finalproject
                                 int t = w * x;
 
                                 string query_1 = "update phone set quantity = '" + w + "' where id = '" + l + "' ";
-
-                                string query_2 = "update phone set total = '" + t + "' where id = '" + l + "'";
-
-                                //string query_3 = "update phoen set quantity = '" + w + "' where id = '" + l + "'";
-
                                 cm = new SqlCommand(query_1, cn);
+                                cm.ExecuteNonQuery();
+                                string query_2 = "update phone set total = '" + t + "' where id = '" + l + "'";
                                 cm = new SqlCommand(query_2, cn);
                                 cm.ExecuteNonQuery();
 
@@ -272,6 +271,8 @@ namespace finalproject
             string sql = "delete from Order_detail where order_id = " + id_order.Text + ""; 
             cm = new SqlCommand(sql, cn);
             cm.ExecuteNonQuery();
+
+            showGRD2();
 
             formload();
 
