@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace finalproject
 {
@@ -69,8 +70,8 @@ namespace finalproject
         }
 
         public void autoId()
-        { 
-            string s = "select DISTINCT id from delivery order by id ";
+        {
+            string s = "select DISTINCT id FROM delivery order by id ";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -308,6 +309,10 @@ namespace finalproject
         {
             string id_acc = Form1.email_acc;
 
+            int a = 0;
+
+            autoId();
+
             delivery_note.Clear();
 
             delivery_note.Text += "***********************************************\n\n";
@@ -330,6 +335,8 @@ namespace finalproject
 
             for(int i = 0; i < grd2.Rows.Count - 1; i++)
             {
+                
+
                 string s = Convert.ToString(grd2.Rows[i].Cells[0].Value);
 
                 if(s != null)
@@ -353,25 +360,48 @@ namespace finalproject
                                 {
                                     int x = Convert.ToInt32(grd1.Rows[j].Cells[6].Value);
                                     int y = Convert.ToInt32(grd2.Rows[i].Cells[6].Value);
-                                    int t = Convert.ToInt16(grd1.Rows[i].Cells[5].Value);
+                                    int t = Convert.ToInt32(grd1.Rows[i].Cells[5].Value);
                                     int z = x - y;
                                     int w = z * t;
 
-                                    query = "update phone set brand = '" + grd2.Rows[i].Cells[1].Value.ToString() + "', name = '" + grd2.Rows[i].Cells[2].Value.ToString() + "', ram = '" + grd2.Rows[i].Cells[3].Value.ToString() + "', gb = '" + grd2.Rows[i].Cells[4].Value.ToString() + "', price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd2.Rows[i].Cells[0].Value.ToString() + "'";
+                                    query = "update phone set price = '" + grd1.Rows[i].Cells[5].Value.ToString() + "', quantity = '" + z.ToString() + "', total = '" + w.ToString() + "' where id = '" + grd2.Rows[i].Cells[0].Value.ToString() + "'";
                                     cm = new SqlCommand(query, cn);
                                     cm.ExecuteNonQuery();
+
+                                    
+
                                 }
                             }
                         }
                     }
                 }
+                int b = Convert.ToInt32(grd2.Rows[i].Cells[7].Value);
+
+                a = a + b;
+
+                string detail = "insert into delivery_detail values ('"  + txtiddelivery.Text + "','" + grd2.Rows[i].Cells[0].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value + "','" + grd2.Rows[i].Cells[7].Value + "')";
+
+                cm = new SqlCommand(detail, cn);
+                cm.ExecuteNonQuery();
             }
+
+            string deliveryy = "insert into delivery values ('" + txtiddelivery.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "', '" + DateTime.Today.ToString() + "', '" + a + "') ";
+            cm = new SqlCommand(deliveryy, cn);
+            cm.ExecuteNonQuery();
+
+
+            string delete = "delete from phone_fake";
+            cm = new SqlCommand(delete, cn);
+            cm.ExecuteNonQuery();
+
+
+            formload();
 
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            autoId();
+            
         }
 
         private void delivery_note_TextChanged(object sender, EventArgs e)
