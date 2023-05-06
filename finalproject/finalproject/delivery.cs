@@ -385,7 +385,7 @@ namespace finalproject
                 cm.ExecuteNonQuery();
             }
 
-            string deliveryy = "insert into delivery values ('" + txtiddelivery.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "', '" + DateTime.Today.ToString() + "', '" + a + "') ";
+            string deliveryy = "insert into delivery values ('" + txtiddelivery.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "','" + txtadd.Text + "','" + DateTime.Today.ToString() + "', '" + a + "') ";
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 

@@ -94,5 +94,27 @@ namespace finalproject
             panel1.Tag = f3;
             f3.Show();
         }
+
+        private void outgoingStockReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form5 f5 = new Form5();
+            f5.TopLevel = false;
+            f5.FormBorderStyle = FormBorderStyle.None;
+            f5.Dock = DockStyle.Fill;
+            panel1.Controls.Add(f5);
+            panel1.Tag = f5;
+            f5.Show();
+        }
+
+        private void revenueReportMonthlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form6 f6 = new Form6();
+            f6.TopLevel = false;
+            f6.FormBorderStyle = FormBorderStyle.None;
+            f6.Dock = DockStyle.Fill;
+            panel1.Controls.Add(f6);
+            panel1.Tag = f6;
+            f6.Show();
+        }
     }
 }

@@ -122,6 +122,8 @@ namespace finalproject
 
             id_order.Text = grd1.CurrentRow.Cells[0].Value.ToString();
 
+            address.Text = grd1.CurrentRow.Cells[3].Value.ToString();
+
             string s = "select * from Order_detail where order_id = '" + grd1.CurrentRow.Cells[0].Value.ToString() + "' ";
 
             data = new SqlDataAdapter(s, cn);
@@ -263,7 +265,7 @@ namespace finalproject
 
             //textBox1: id of delivery
 
-            string deliveryy = "insert into delivery values ('" + textBox1.Text + "', '" + id_acc.ToString() +"', '" + id_agent.Text + "', '"  + DateTime.Today.ToString() + "', '" + a + "') ";
+            string deliveryy = "insert into delivery values ('" + textBox1.Text + "', '" + id_acc.ToString() +"', '" + id_agent.Text + "', '" + address.Text + "' ,'"  + DateTime.Today.ToString() + "', '" + a + "') ";
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 

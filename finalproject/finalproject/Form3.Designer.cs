@@ -38,6 +38,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.id_agent = new System.Windows.Forms.TextBox();
             this.id_order = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd3)).BeginInit();
@@ -143,6 +144,14 @@
             this.id_order.TabIndex = 9;
             this.id_order.Visible = false;
             // 
+            // address
+            // 
+            this.address.Location = new System.Drawing.Point(733, 726);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(197, 23);
+            this.address.TabIndex = 10;
+            this.address.Visible = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -150,6 +159,7 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.ControlBox = false;
+            this.Controls.Add(this.address);
             this.Controls.Add(this.id_order);
             this.Controls.Add(this.id_agent);
             this.Controls.Add(this.textBox1);
@@ -182,5 +192,6 @@
         private TextBox textBox1;
         private TextBox id_agent;
         private TextBox id_order;
+        private TextBox address;
     }
 }

@@ -60,7 +60,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.grd1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtadd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDagent = new System.Windows.Forms.TextBox();
@@ -88,7 +88,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.grd1);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtadd);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtIDagent);
@@ -439,14 +439,14 @@
             this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.grd1_Click);
             // 
-            // textBox3
+            // txtadd
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(100, 99);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(414, 29);
-            this.textBox3.TabIndex = 5;
+            this.txtadd.BackColor = System.Drawing.SystemColors.Control;
+            this.txtadd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtadd.Location = new System.Drawing.Point(100, 99);
+            this.txtadd.Name = "txtadd";
+            this.txtadd.Size = new System.Drawing.Size(414, 29);
+            this.txtadd.TabIndex = 5;
             // 
             // label3
             // 
@@ -540,7 +540,7 @@
         private Label label5;
         private Label label4;
         private DataGridView grd1;
-        private TextBox textBox3;
+        private TextBox txtadd;
         private Label label3;
         private Label label2;
         private TextBox txtIDagent;

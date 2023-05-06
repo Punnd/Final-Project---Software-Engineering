@@ -33,11 +33,12 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gooToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deliveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.incomeGoodsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outgoingStockReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revenueReportMonthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,11 +88,20 @@
             this.deliveryToolStripMenuItem.Text = "Delivery";
             this.deliveryToolStripMenuItem.Click += new System.EventHandler(this.deliveryToolStripMenuItem_Click);
             // 
+            // orderToolStripMenuItem
+            // 
+            this.orderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
+            this.orderToolStripMenuItem.Text = "Order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            // 
             // reportToolStripMenuItem
             // 
             this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.incomeGoodsToolStripMenuItem,
-            this.outgoingStockReportToolStripMenuItem});
+            this.outgoingStockReportToolStripMenuItem,
+            this.revenueReportMonthlyToolStripMenuItem});
             this.reportToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(79, 29);
@@ -100,15 +110,16 @@
             // incomeGoodsToolStripMenuItem
             // 
             this.incomeGoodsToolStripMenuItem.Name = "incomeGoodsToolStripMenuItem";
-            this.incomeGoodsToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.incomeGoodsToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.incomeGoodsToolStripMenuItem.Text = "Incoming stock report ";
             this.incomeGoodsToolStripMenuItem.Click += new System.EventHandler(this.incomeGoodsToolStripMenuItem_Click);
             // 
             // outgoingStockReportToolStripMenuItem
             // 
             this.outgoingStockReportToolStripMenuItem.Name = "outgoingStockReportToolStripMenuItem";
-            this.outgoingStockReportToolStripMenuItem.Size = new System.Drawing.Size(273, 30);
+            this.outgoingStockReportToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
             this.outgoingStockReportToolStripMenuItem.Text = "Outgoing stock report";
+            this.outgoingStockReportToolStripMenuItem.Click += new System.EventHandler(this.outgoingStockReportToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -118,13 +129,12 @@
             this.panel1.Size = new System.Drawing.Size(1200, 800);
             this.panel1.TabIndex = 1;
             // 
-            // orderToolStripMenuItem
+            // revenueReportMonthlyToolStripMenuItem
             // 
-            this.orderToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(73, 29);
-            this.orderToolStripMenuItem.Text = "Order";
-            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            this.revenueReportMonthlyToolStripMenuItem.Name = "revenueReportMonthlyToolStripMenuItem";
+            this.revenueReportMonthlyToolStripMenuItem.Size = new System.Drawing.Size(286, 30);
+            this.revenueReportMonthlyToolStripMenuItem.Text = "Revenue report monthly";
+            this.revenueReportMonthlyToolStripMenuItem.Click += new System.EventHandler(this.revenueReportMonthlyToolStripMenuItem_Click);
             // 
             // main
             // 
@@ -157,5 +167,6 @@
         private ToolStripMenuItem incomeGoodsToolStripMenuItem;
         private ToolStripMenuItem outgoingStockReportToolStripMenuItem;
         private ToolStripMenuItem orderToolStripMenuItem;
+        private ToolStripMenuItem revenueReportMonthlyToolStripMenuItem;
     }
 }
