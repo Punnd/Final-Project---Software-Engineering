@@ -5,11 +5,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+
 
 namespace finalproject
 {
@@ -158,6 +164,20 @@ namespace finalproject
         void formload()
         {
 
+            txtid.Enabled = false;
+
+            txtname.Enabled = false;
+
+            txtbrand.Enabled = false;
+
+            txtprice.Enabled = false;
+
+            txtquantity.Enabled = false;
+
+            txtram.Enabled = false;
+
+            txtstorage.Enabled = false;
+
             button4.Enabled = false;
 
             button5.Enabled = false;
@@ -196,6 +216,21 @@ namespace finalproject
 
         private void button7_Click(object sender, EventArgs e)
         {
+            txtid.Enabled = true;
+
+            txtname.Enabled = true;
+
+            txtbrand.Enabled = true;
+
+            txtprice.Enabled = true;
+
+            txtquantity.Enabled = true;
+
+            txtram.Enabled = true;
+
+            txtstorage.Enabled = true;
+
+
             txtid.Clear();
             txtbrand.Clear();
             txtname.Clear();
@@ -271,6 +306,20 @@ namespace finalproject
 
         private void button6_Click(object sender, EventArgs e)
         {
+            txtid.Enabled = true;
+
+            txtname.Enabled = true;
+
+            txtbrand.Enabled = true;
+
+            txtprice.Enabled = true;
+
+            txtquantity.Enabled = true;
+
+            txtram.Enabled = true;
+
+            txtstorage.Enabled = true;
+
             txtid.Enabled = false;
             txtname.Focus();
             button4.Enabled = true;
@@ -333,7 +382,7 @@ namespace finalproject
 
                                 DataTable dl = selectQuery(query);
 
-                                if (dl.Rows.Count > 0)
+                                if (dl.Rows.Count > 0 && l == s)
                                 {
                                     int x = Convert.ToInt32(grd2.Rows[j].Cells[6].Value);
                                     int y = Convert.ToInt32(grd1.Rows[i].Cells[6].Value);
@@ -390,6 +439,87 @@ namespace finalproject
             button7.Enabled = true;
             autoId();
         }
-        //public string 
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (grd1.Rows.Count - 1 > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+
+
+                            PdfPTable pdfTable = new PdfPTable(grd1.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                            //add column
+                            foreach (DataGridViewColumn column in grd1.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            //add value
+                            for (int i = 0; i < grd1.Rows.Count - 1; ++i)
+                            {
+                                for (int j = 0; j < grd1.Columns.Count; ++j)
+                                {
+                                    // string s = grd.Rows[i].Cells[j].Value.ToString();
+                                    pdfTable.AddCell(grd1.Rows[i].Cells[j].Value.ToString());
+
+                                }
+                            }
+
+                           
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(new Paragraph("Good Recveied"));
+                                pdfDoc.Add(new Paragraph("ID: + " + txtGR.Text + ""));
+                                pdfDoc.Add(new Paragraph("\n"));
+                                pdfDoc.Add(pdfTable);
+                                //pdfDoc.Add(new Paragraph("Total: + " + total.Text + ""));
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Data Exported Successfully !!!", "Info");
+                            // Application.Run(sfd.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
+        }
+         
     }
 }

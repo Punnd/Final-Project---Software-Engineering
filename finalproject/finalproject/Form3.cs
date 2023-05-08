@@ -57,7 +57,7 @@ namespace finalproject
         public void showGRD1()
         {
 
-            string s = "select * from P_Order";
+            string s = "select * from P_Order where d_status = 0";
 
             data = new SqlDataAdapter(s, cn);
 
@@ -269,17 +269,24 @@ namespace finalproject
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 
+            string order = "update P_Order set d_status = 1 , descrip = 'confirmed' where id = '"  + grd1.CurrentRow.Cells[0].Value + "' ";
+            cm = new SqlCommand(order, cn);
+            cm.ExecuteNonQuery();
+
 
             string sql = "delete from Order_detail where order_id = " + id_order.Text + ""; 
             cm = new SqlCommand(sql, cn);
             cm.ExecuteNonQuery();
 
-            showGRD2();
+            //showGRD2();
 
             formload();
 
         }
 
+        private void grd1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

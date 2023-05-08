@@ -52,6 +52,7 @@
             this.grd1.RowTemplate.Height = 25;
             this.grd1.Size = new System.Drawing.Size(580, 341);
             this.grd1.TabIndex = 0;
+            this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.grd1_Click);
             // 
             // grd2

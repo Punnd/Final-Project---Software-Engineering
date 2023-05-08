@@ -107,3 +107,5 @@ C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final\Final-Project---Software-Engineering\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form3.resources
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final\Final-Project---Software-Engineering\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form5.resources
 C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final\Final-Project---Software-Engineering\finalproject\finalproject\obj\Debug\net6.0-windows\finalproject.Form6.resources
+C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final\Final-Project---Software-Engineering\finalproject\finalproject\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\ASUS\Documents\TDTU\Second_year\HK2_2022-2023\Software_Technology\final\Final-Project---Software-Engineering\finalproject\finalproject\bin\Debug\net6.0-windows\itextsharp.dll

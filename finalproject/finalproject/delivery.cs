@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -311,7 +312,38 @@ namespace finalproject
 
             int a = 0;
 
-            autoId();
+            //autoId();
+
+            string s1 = "select DISTINCT id FROM delivery order by id ";
+            data = new SqlDataAdapter(s1, cn);
+            tb = new DataTable();
+            data.Fill(tb);
+
+
+            if (tb.Rows.Count == 0)
+            {
+                txtiddelivery.Text = "DL0001";
+            }
+            else
+            {
+
+                string res = "";
+
+                int stt = tb.Rows.Count;
+                stt++;
+                if (stt < 10)
+                    res += "DL" + "000" + (stt).ToString();
+                else if (stt < 100)
+                    res += "DL" + "00" + (stt).ToString();
+                else if (stt < 1000)
+                    res += "DL" + "0" + (stt).ToString();
+                else
+                    res += "DL" + (stt).ToString();
+
+                txtiddelivery.Text = res;
+            }
+
+
 
             delivery_note.Clear();
 
@@ -346,7 +378,7 @@ namespace finalproject
                     DataTable dt = selectQuery(query);
                     if(dt.Rows.Count != 0)
                     {
-                        for(int j = 0; j < grd1.Rows.Count -1 ; j++)
+                        for(int j = 0; j < grd1.Rows.Count - 1 ; j++)
                         {
                             string l = Convert.ToString(grd1.Rows[j].Cells[0].Value);
 
@@ -356,7 +388,7 @@ namespace finalproject
 
                                 DataTable dl = selectQuery(query_1);
 
-                                if (dl.Rows.Count > 0)
+                                if (dl.Rows.Count > 0 && l == s )
                                 {
                                     int x = Convert.ToInt32(grd1.Rows[j].Cells[6].Value);
                                     int y = Convert.ToInt32(grd2.Rows[i].Cells[6].Value);
@@ -407,6 +439,51 @@ namespace finalproject
         private void delivery_note_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            int x = 10;
+            int y = 0;
+            int charpos = 0;
+            while (charpos < delivery_note.Text.Length)
+            {
+                if (delivery_note.Text[charpos] == '\n')
+                {
+                    charpos++;
+                    y += 20;
+                    x = 10;
+                }
+                else if (delivery_note.Text[charpos] == '\r')
+                {
+                    charpos++;
+                }
+                else
+                {
+                    delivery_note.Select(charpos, 1);
+                    e.Graphics.DrawString(delivery_note.SelectedText, delivery_note.SelectionFont, new SolidBrush(delivery_note.SelectionColor), new PointF(x, y));
+                    x = x + 8;
+                    charpos++;
+                }
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PrintDocument doc = new PrintDocument();
+            PrintDialog pd = new PrintDialog();
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = doc;
+            pd.Document = doc;
+            doc.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            if (ppd.ShowDialog() == DialogResult.OK)
+            {
+                if (pd.ShowDialog() == DialogResult.OK)
+                {
+                    doc.Print();
+                }
+            }
         }
     }
 }

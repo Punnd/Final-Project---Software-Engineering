@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
             this.grd2 = new System.Windows.Forms.DataGridView();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.txtname = new System.Windows.Forms.TextBox();
             this.txtGR = new System.Windows.Forms.TextBox();
             this.grd1 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
@@ -93,6 +93,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 711);
             this.panel1.TabIndex = 7;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(799, 24);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(183, 55);
+            this.button8.TabIndex = 26;
+            this.button8.Text = "New receive";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // grd2
             // 
@@ -199,6 +212,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "Print";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -255,6 +269,15 @@
             // 
             this.txtstorage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtstorage.FormattingEnabled = true;
+            this.txtstorage.Items.AddRange(new object[] {
+            "8",
+            "16",
+            "32",
+            "64",
+            "128",
+            "256",
+            "512",
+            "1024"});
             this.txtstorage.Location = new System.Drawing.Point(397, 213);
             this.txtstorage.Name = "txtstorage";
             this.txtstorage.Size = new System.Drawing.Size(280, 33);
@@ -265,6 +288,15 @@
             this.txtram.BackColor = System.Drawing.SystemColors.Control;
             this.txtram.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtram.FormattingEnabled = true;
+            this.txtram.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "6",
+            "8",
+            "12",
+            "16"});
             this.txtram.Location = new System.Drawing.Point(397, 166);
             this.txtram.Name = "txtram";
             this.txtram.Size = new System.Drawing.Size(280, 33);
@@ -359,19 +391,6 @@
             this.grd1.TabIndex = 0;
             this.grd1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd1_CellContentClick);
             this.grd1.Click += new System.EventHandler(this.dataGridView1_Click);
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.ForeColor = System.Drawing.SystemColors.Control;
-            this.button8.Location = new System.Drawing.Point(799, 24);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(183, 55);
-            this.button8.TabIndex = 26;
-            this.button8.Text = "New receive";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Form4
             // 
