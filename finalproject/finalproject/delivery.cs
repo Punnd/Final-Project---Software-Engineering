@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
+
 namespace finalproject
 {
     public partial class delivery : Form
@@ -23,7 +24,9 @@ namespace finalproject
 
         DataTable tb;
 
-        int dk = 0;
+        //int dk = 0;
+
+        private int currentId;
         public delivery()
         {
             InitializeComponent();
@@ -44,10 +47,10 @@ namespace finalproject
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        /*private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-        }
+        }*/
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -72,7 +75,8 @@ namespace finalproject
 
         public void autoId()
         {
-            string s = "select DISTINCT id FROM delivery order by id ";
+            //string s = "select DISTINCT id FROM delivery order by id";
+            string s = "select * from delivery";
             data = new SqlDataAdapter(s, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -80,28 +84,30 @@ namespace finalproject
 
             if (tb.Rows.Count == 0)
             {
-                txtiddelivery.Text = "DL0001";
+                txt_id_de.Text = "0000001";
             }
             else
             {
-
                 string res = "";
 
                 int stt = tb.Rows.Count;
                 stt++;
                 if (stt < 10)
-                    res += "DL" + "000" + (stt).ToString();
+                    res += "000000" + (stt).ToString();
                 else if (stt < 100)
-                    res += "DL" + "00" + (stt).ToString();
+                    res += "00000" + (stt).ToString();
                 else if (stt < 1000)
-                    res += "DL" + "0" + (stt).ToString();
+                    res += "0000" + (stt).ToString();
                 else
-                    res += "DL" + (stt).ToString();
+                    res += "000" + (stt).ToString();
 
-                txtiddelivery.Text = res;
+                txt_id_de.Text = res;
             }
 
+            
         }
+
+
         public void showGRD1()
         {
 
@@ -152,19 +158,17 @@ namespace finalproject
 
             button1.Enabled = false;
 
-            txtiddelivery.Enabled = false;
+            //txtid.Enabled = false;
 
-            txtid.Enabled = false;
+            //txtname.Enabled = false;
 
-            txtname.Enabled = false;
+           // txtbrand.Enabled = false;
 
-            txtbrand.Enabled = false;
+            //txtram.Enabled = false;
 
-            txtram.Enabled = false;
+            //txtstorage.Enabled = false;
 
-            txtstorage.Enabled = false;
-
-            txttotal.Enabled = false;
+            //txttotal.Enabled = false;
 
             //button5.Enabled = false;
 
@@ -174,11 +178,10 @@ namespace finalproject
 
             //int s = int.Parse(txtprice.Text) * int.Parse(txtquantity.Text);
 
-            
 
             grbox1.Visible = false;
 
-            grbox1.Enabled = false;
+            //grbox1.Enabled = false;
 
             showGRD1();
 
@@ -314,7 +317,7 @@ namespace finalproject
 
             //autoId();
 
-            string s1 = "select DISTINCT id FROM delivery order by id ";
+            /*string s1 = "select DISTINCT id FROM delivery order by id ";
             data = new SqlDataAdapter(s1, cn);
             tb = new DataTable();
             data.Fill(tb);
@@ -341,7 +344,8 @@ namespace finalproject
                     res += "DL" + (stt).ToString();
 
                 txtiddelivery.Text = res;
-            }
+
+            }*/
 
 
 
@@ -365,10 +369,10 @@ namespace finalproject
             delivery_note.Text += "-----------------------------------------------\n\n";
 
 
+            //autoId();
+
             for(int i = 0; i < grd2.Rows.Count - 1; i++)
             {
-                
-
                 string s = Convert.ToString(grd2.Rows[i].Cells[0].Value);
 
                 if(s != null)
@@ -400,8 +404,9 @@ namespace finalproject
                                     cm = new SqlCommand(query, cn);
                                     cm.ExecuteNonQuery();
 
-                                    
-
+                                    string detail = "insert into delivery_detail values ('" + txt_id_de.Text + "','" + grd2.Rows[i].Cells[0].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value + "','" + grd2.Rows[i].Cells[7].Value + "')";
+                                    cm = new SqlCommand(detail, cn);
+                                    cm.ExecuteNonQuery();
                                 }
                             }
                         }
@@ -411,13 +416,10 @@ namespace finalproject
 
                 a = a + b;
 
-                string detail = "insert into delivery_detail values ('"  + txtiddelivery.Text + "','" + grd2.Rows[i].Cells[0].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value + "','" + grd2.Rows[i].Cells[7].Value + "')";
-
-                cm = new SqlCommand(detail, cn);
-                cm.ExecuteNonQuery();
+                
             }
 
-            string deliveryy = "insert into delivery values ('" + txtiddelivery.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "','" + txtadd.Text + "','" + DateTime.Today.ToString() + "', '" + a + "') ";
+            string deliveryy = "insert into delivery values ('" + txt_id_de.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "','" + txtadd.Text + "','" + DateTime.Today.ToString() + "', '" + a + "') ";
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 
@@ -433,7 +435,7 @@ namespace finalproject
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
+            autoId();
         }
 
         private void delivery_note_TextChanged(object sender, EventArgs e)

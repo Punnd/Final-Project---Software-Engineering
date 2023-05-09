@@ -274,9 +274,9 @@ namespace finalproject
             cm.ExecuteNonQuery();
 
 
-            string sql = "delete from Order_detail where order_id = " + id_order.Text + ""; 
+            /*string sql = "delete from Order_detail where order_id = " + id_order.Text + ""; 
             cm = new SqlCommand(sql, cn);
-            cm.ExecuteNonQuery();
+            cm.ExecuteNonQuery();*/
 
             //showGRD2();
 

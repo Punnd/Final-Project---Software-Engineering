@@ -64,7 +64,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDagent = new System.Windows.Forms.TextBox();
-            this.txtiddelivery = new System.Windows.Forms.TextBox();
+            this.txt_id_de = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
@@ -92,13 +92,12 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtIDagent);
-            this.panel1.Controls.Add(this.txtiddelivery);
+            this.panel1.Controls.Add(this.txt_id_de);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1169, 760);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button7
             // 
@@ -111,7 +110,6 @@
             this.button7.TabIndex = 31;
             this.button7.Text = "New delivery";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Visible = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // txtemail
@@ -478,16 +476,16 @@
             this.txtIDagent.Size = new System.Drawing.Size(414, 29);
             this.txtIDagent.TabIndex = 2;
             // 
-            // txtiddelivery
+            // txt_id_de
             // 
-            this.txtiddelivery.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtiddelivery.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtiddelivery.Location = new System.Drawing.Point(100, 10);
-            this.txtiddelivery.Name = "txtiddelivery";
-            this.txtiddelivery.Size = new System.Drawing.Size(138, 29);
-            this.txtiddelivery.TabIndex = 1;
-            this.txtiddelivery.Visible = false;
-            this.txtiddelivery.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_id_de.BackColor = System.Drawing.Color.Gainsboro;
+            this.txt_id_de.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_id_de.Location = new System.Drawing.Point(100, 10);
+            this.txt_id_de.Name = "txt_id_de";
+            this.txt_id_de.Size = new System.Drawing.Size(138, 29);
+            this.txt_id_de.TabIndex = 1;
+            this.txt_id_de.Visible = false;
+            this.txt_id_de.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -505,7 +503,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.ClientSize = new System.Drawing.Size(1184, 784);
+            this.ClientSize = new System.Drawing.Size(1184, 774);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Name = "delivery";
@@ -545,7 +543,7 @@
         private Label label3;
         private Label label2;
         private TextBox txtIDagent;
-        private TextBox txtiddelivery;
+        private TextBox txt_id_de;
         private Label label1;
         private Label label9;
         private Button button4;
