@@ -73,6 +73,28 @@ create table delivery_detail(
 	total int
 )
 
+
+create table P_Order(
+	id	int identity not null primary key,
+	id_agent int,
+	date datetime,
+	Address_Description nvarchar(100),
+	d_status int,
+	descrip varchar(max)
+)
+
+
+
+create table Order_detail(
+	id int not null identity primary key,
+	order_id int,
+	id_phone varchar(100),
+	p_name varchar(50),
+	quantity int,
+	price int,
+	total int
+)
+
 alter table phone
 add primary key(id)
 
