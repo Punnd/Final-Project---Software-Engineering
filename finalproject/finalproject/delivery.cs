@@ -84,7 +84,7 @@ namespace finalproject
 
             if (tb.Rows.Count == 0)
             {
-                txt_id_de.Text = "0000001";
+                textBox1.Text = "DL0001";
             }
             else
             {
@@ -93,15 +93,15 @@ namespace finalproject
                 int stt = tb.Rows.Count;
                 stt++;
                 if (stt < 10)
-                    res += "000000" + (stt).ToString();
+                    res += "DL" + "000" + (stt).ToString();
                 else if (stt < 100)
-                    res += "00000" + (stt).ToString();
+                    res += "DL" + "00" + (stt).ToString();
                 else if (stt < 1000)
-                    res += "0000" + (stt).ToString();
+                    res += "DL" + "0" + (stt).ToString();
                 else
-                    res += "000" + (stt).ToString();
+                    res += "DL" + (stt).ToString();
 
-                txt_id_de.Text = res;
+                textBox1.Text = res;
             }
 
             
@@ -178,6 +178,9 @@ namespace finalproject
 
             //int s = int.Parse(txtprice.Text) * int.Parse(txtquantity.Text);
 
+            textBox1.Visible= false;
+
+            label1.Visible = false;
 
             grbox1.Visible = false;
 
@@ -404,7 +407,7 @@ namespace finalproject
                                     cm = new SqlCommand(query, cn);
                                     cm.ExecuteNonQuery();
 
-                                    string detail = "insert into delivery_detail values ('" + txt_id_de.Text + "','" + grd2.Rows[i].Cells[0].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value + "','" + grd2.Rows[i].Cells[7].Value + "')";
+                                    string detail = "insert into delivery_detail values ('" + textBox1.Text + "','" + grd2.Rows[i].Cells[0].Value.ToString() + "','" + grd2.Rows[i].Cells[6].Value + "','" + grd2.Rows[i].Cells[7].Value + "')";
                                     cm = new SqlCommand(detail, cn);
                                     cm.ExecuteNonQuery();
                                 }
@@ -419,7 +422,7 @@ namespace finalproject
                 
             }
 
-            string deliveryy = "insert into delivery values ('" + txt_id_de.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "','" + txtadd.Text + "','" + DateTime.Today.ToString() + "', '" + a + "') ";
+            string deliveryy = "insert into delivery values ('" + textBox1.Text + "', '" + id_acc.ToString() + "', '" + txtIDagent.Text + "','" + txtadd.Text + "','" + DateTime.Today.ToString() + "', '" + a + "') ";
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 
@@ -435,7 +438,14 @@ namespace finalproject
 
         private void button7_Click(object sender, EventArgs e)
         {
+            //autoId();
+
+            textBox1.Visible = true;
+
+            label1.Visible = true;
+
             autoId();
+
         }
 
         private void delivery_note_TextChanged(object sender, EventArgs e)
@@ -486,6 +496,11 @@ namespace finalproject
                     doc.Print();
                 }
             }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

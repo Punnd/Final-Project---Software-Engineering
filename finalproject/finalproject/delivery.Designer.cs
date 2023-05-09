@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.txtemail = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDagent = new System.Windows.Forms.TextBox();
-            this.txt_id_de = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
@@ -75,6 +75,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.txtemail);
             this.panel1.Controls.Add(this.label14);
@@ -92,12 +93,21 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtIDagent);
-            this.panel1.Controls.Add(this.txt_id_de);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1169, 760);
             this.panel1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(100, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 33);
+            this.textBox1.TabIndex = 32;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // button7
             // 
@@ -476,17 +486,6 @@
             this.txtIDagent.Size = new System.Drawing.Size(414, 29);
             this.txtIDagent.TabIndex = 2;
             // 
-            // txt_id_de
-            // 
-            this.txt_id_de.BackColor = System.Drawing.Color.Gainsboro;
-            this.txt_id_de.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_id_de.Location = new System.Drawing.Point(100, 10);
-            this.txt_id_de.Name = "txt_id_de";
-            this.txt_id_de.Size = new System.Drawing.Size(138, 29);
-            this.txt_id_de.TabIndex = 1;
-            this.txt_id_de.Visible = false;
-            this.txt_id_de.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -496,7 +495,6 @@
             this.label1.Size = new System.Drawing.Size(30, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID";
-            this.label1.Visible = false;
             // 
             // delivery
             // 
@@ -543,7 +541,6 @@
         private Label label3;
         private Label label2;
         private TextBox txtIDagent;
-        private TextBox txt_id_de;
         private Label label1;
         private Label label9;
         private Button button4;
@@ -558,5 +555,6 @@
         private TextBox txtemail;
         private Label label14;
         private Button button7;
+        private TextBox textBox1;
     }
 }
