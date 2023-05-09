@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -248,6 +250,90 @@ namespace finalproject
             connect();
 
             formload();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+
+            if (grd2.Rows.Count - 1 > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                        try
+                        {
+
+
+                            PdfPTable pdfTable = new PdfPTable(grd2.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                            //add column
+                            foreach (DataGridViewColumn column in grd2.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            //add value
+                            for (int i = 0; i < grd2.Rows.Count - 1; ++i)
+                            {
+                                for (int j = 0; j < grd2.Columns.Count; ++j)
+                                {
+                                    // string s = grd.Rows[i].Cells[j].Value.ToString();
+                                    pdfTable.AddCell(grd2.Rows[i].Cells[j].Value.ToString());
+
+                                }
+                            }
+
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+                                pdfDoc.Open();
+                                pdfDoc.Add(new Paragraph("Goods Delivery"));
+                                pdfDoc.Add(new Paragraph("ID: " + grd1.CurrentRow.Cells[0].Value + ""));
+                                pdfDoc.Add(new Paragraph("Date: " + grd1.CurrentRow.Cells[4].Value + ""));
+                                pdfDoc.Add(new Paragraph("\n"));
+                                pdfDoc.Add(pdfTable);
+                                //pdfDoc.Add(new Paragraph("Total: + " + total.Text + ""));
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Data Exported Successfully !!!", "Info");
+                            // Application.Run(sfd.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
         }
     }
 }

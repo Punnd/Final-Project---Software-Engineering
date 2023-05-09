@@ -269,7 +269,7 @@ namespace finalproject
             cm = new SqlCommand(deliveryy, cn);
             cm.ExecuteNonQuery();
 
-            string order = "update P_Order set d_status = 1 , descrip = 'confirmed' where id = '"  + grd1.CurrentRow.Cells[0].Value + "' ";
+            string order = "update P_Order set d_status = 1 , descrip = 'confirmed' 'where id = '"  + grd1.CurrentRow.Cells[0].Value + "' ";
             cm = new SqlCommand(order, cn);
             cm.ExecuteNonQuery();
 

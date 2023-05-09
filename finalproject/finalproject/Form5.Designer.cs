@@ -38,6 +38,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             this.SuspendLayout();
@@ -148,6 +149,19 @@
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(1048, 99);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(124, 42);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "Print";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -155,6 +169,7 @@
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.ClientSize = new System.Drawing.Size(1184, 741);
             this.ControlBox = false;
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -185,5 +200,6 @@
         private Button button6;
         private Button button7;
         private DateTimePicker dateTimePicker1;
+        private Button button8;
     }
 }

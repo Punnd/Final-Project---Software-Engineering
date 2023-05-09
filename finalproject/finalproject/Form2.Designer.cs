@@ -39,6 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.grd2 = new System.Windows.Forms.DataGridView();
             this.grd1 = new System.Windows.Forms.DataGridView();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd1)).BeginInit();
@@ -47,6 +48,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
@@ -169,6 +171,19 @@
             this.grd1.TabIndex = 1;
             this.grd1.Click += new System.EventHandler(this.grd1_Click);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.Blue;
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button8.ForeColor = System.Drawing.SystemColors.Control;
+            this.button8.Location = new System.Drawing.Point(1048, 103);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(124, 42);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "Print";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -198,5 +213,6 @@
         private Button button1;
         private Button button7;
         private DateTimePicker dateTimePicker1;
+        private Button button8;
     }
 }
